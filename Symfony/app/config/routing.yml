@@ -3,7 +3,3 @@ keeg_website:
     prefix:   /
 
 # app/config/routing.yml
-
-oc_forum:
-    resource: "@OCForumBundle/Resources/config/routing.yml"
-    prefix:      /forum
