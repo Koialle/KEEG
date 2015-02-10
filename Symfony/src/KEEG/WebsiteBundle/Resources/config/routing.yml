@@ -1,0 +1,17 @@
+# src/OC/PlatformBundle/Resources/config/routing.yml
+
+keeg_website_homepage:
+    path:     /index
+    defaults: { _controller: KEEGWebsiteBundle:Website:index }
+
+keeg_website_IT:
+    path:     /IT
+    defaults: { _controller: KEEGWebsiteBundle:Website:IT }
+
+keeg_website_activities:
+    path:     /activities
+    defaults: { _controller: KEEGWebsiteBundle:Website:activities }
+
+keeg_website_f:
+    path:     /f
+    defaults: { _controller: KEEGWebsiteBundle:Website:forum }

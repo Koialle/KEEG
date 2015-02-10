@@ -1,0 +1,38 @@
+# src/OC/ForumBundle/Resource/config/routing.yml
+
+oc_forum_home:
+    path:      /{page}
+    defaults:  { _controller: OCForumBundle:Advert:index, page: 1 }
+    requirements:
+        page: \d*
+
+oc_forum_view:
+    path:      /advert/{id}
+    defaults:  { _controller: OCForumBundle:Advert:view }
+    requirements:
+        id: \d+
+
+oc_forum_add:
+    path:      /add
+    defaults:  { _controller: OCForumBundle:Advert:add }
+
+oc_forum_edit:
+    path:     /edit/{id}
+    defaults:  { _controller: OCForumBundle:Advert:edit }
+    requirements:
+        id: \d+
+
+oc_forum_delete:
+    path:     /delete/{id}
+    defaults: { _controller: OCForumBundle:Advert:delete }
+    requirements:
+        id:  \d+
+
+oc_forum_view_slug:
+    path:      /{year}/{slug}.{_format}
+    defaults:  { _controller: OCForumBundle:Advert:viewSlug, _format: html }
+    requirements:
+        year: \d{4}
+        _format: html|xml
+
+
