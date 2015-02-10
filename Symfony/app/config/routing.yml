@@ -7,7 +7,3 @@ keeg_website:
 oc_forum:
     resource: "@OCForumBundle/Resources/config/routing.yml"
     prefix:      /forum
-
-app:
-    resource: @AppBundle/Controller/
-    type:      annotation
