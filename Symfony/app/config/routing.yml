@@ -1,3 +1,19 @@
+keeg_article:
+    resource: "@KEEGArticleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+keeg_admin:
+    resource: "@KEEGAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+keeg_activity:
+    resource: "@KEEGActivityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+keeg_forum:
+    resource: "@KEEGForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
 keeg_website:
     resource: "@KEEGWebsiteBundle/Resources/config/routing.yml"
     prefix:   /
