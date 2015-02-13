@@ -1,0 +1,4 @@
+services:
+#    keeg_article.example:
+#        class: KEEG\ArticleBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,4 @@
+services:
+#    keeg_activity.example:
+#        class: KEEG\ActivityBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

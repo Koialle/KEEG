@@ -1,0 +1,3 @@
+keeg_admin_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: KEEGAdminBundle:Default:index }

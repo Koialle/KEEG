@@ -1,0 +1,3 @@
+keeg_forum_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: KEEGForumBundle:Default:index }
