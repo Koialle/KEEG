@@ -9,7 +9,7 @@ class WebsiteController extends Controller
 {
     public function indexAction()
     {
-        $content = $this->get('templating')->render('KEEGWebsiteBundle:Website:index.html.twig');
+        $content = $this->get('templating')->render('KEEGWebsiteBundle:Advert:index.html.twig');
 		return new Response($content);
     }
 }

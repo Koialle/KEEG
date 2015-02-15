@@ -1,0 +1,115 @@
+{# scr/KEEG/WebsiteBundle/Resources/views/structure.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>{% block title %} - KEEG Project{% endblock %}</title>
+
+  {% block stylesheets %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  {% endblock %}
+</head>
+
+<body>
+
+  <div class="container">
+  
+	<!-- Static navbar -->
+    <nav class="navbar navbar-default {#navbar-fixed-top#}">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">KEEGProject</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="{{ path('keeg_website_homepage') }}"><i class="glyphicon glyphicon-home"></i> Accueil</a></li>
+					<li><a href="{{ path('keeg_website_iut') }}">L'Univers de l'Informatique</a></li>
+					<li><a href="{{ path('keeg_website_activities') }}">A vous de jouer !</a></li>
+					<li class="dropdown">
+						<a href="{{ path('keeg_website_forums') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Forums <span class="caret"></span>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="#">Separated link</a></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+	  
+    <header class="jumbotron">
+		<h1> KEEG : L'informatique pour tou(te)s {# ♂♀ #} </h1>
+		<p>
+			Parce que l'informatique n'est pas un domaine uniquement ouvert aux garçons
+		</p>
+		<p>
+			<a href="#"> Se connecter </a> | <a href="#"> S'inscrire </a>
+		</p>
+    </header>
+	
+    <div class="row">
+		<div id="menu" class="col-md-3">
+			<h3>Accueil</h3>
+			<ul class="nav nav-pills nav-stacked">
+			  <li><a href="#">News</a></li>
+			  <li><a href="#">Articles</a></li>
+			  <li><a href="#">Témoignages</a></li>
+			</ul>
+		</div>
+		<div id="content" class="col-md-9">
+			{% block body %}
+			{% endblock %}
+		</div>
+    </div>
+
+    <hr>
+
+    <footer>
+		<ul id="site">
+			<li> KEEG </li>
+			<li> <a href="#"> Acceuil </a> </li>
+			<li> <a href="#"> L'Informatique </a> </li>
+			<li> <a href="#"> A vous de jouer !</a> </li>
+			<li> <a href="#"> Forums </a> </li>
+		</ul>
+		<ul id="contacts">
+			<li> Contacts <li>
+			<li> <a href="http://iut.univ-lyon1.fr/"> IUT Claude Bernard Lyon 1</a> </li>
+			<li> <a href="#"> Équipe de KEEGProject </a> </li>
+			<li> <a href="#"> Lien3</a> </li>
+		</ul>
+		<ul id="voir_aussi">
+			<li> Voir aussi... <li>
+			<li> <a href="http://openclassrooms.com/"> Open Classroom </a> </li>
+			<li> <a href="#"> Lien2 </a> </li>
+			<li> <a href="#"> Lien3</a> </li>
+		</ul>			
+    </footer>
+	
+  </div>
+
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% endblock %}
+
+</body>
+</html>
