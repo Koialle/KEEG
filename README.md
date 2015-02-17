@@ -4,7 +4,7 @@ Projet PTUT S2-S3-S4 Departement Informatique IUT de Lyon 1 Site Doua - 2015
 
 Membres :
 
-Mélanie DUBREUIL Ophélie EOUZAN Karen OUHBAROU ?? Ophélie RODRIGUES
+Mélanie DUBREUIL Ophélie EOUZAN Karen OUBARHOU Ophélie RODRIGUES
 
 Description :
 
