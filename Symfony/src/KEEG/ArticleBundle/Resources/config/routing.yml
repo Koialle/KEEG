@@ -1,3 +1,6 @@
-keeg_article_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: KEEGArticleBundle:Default:index }
+
+keeg_article_view:
+    path:     /articles/{id}
+    defaults: { _controller: KEEGArticleBundle:Article:view }
+    requirements:
+        id:   \d+

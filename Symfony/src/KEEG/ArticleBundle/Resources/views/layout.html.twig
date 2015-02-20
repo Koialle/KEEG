@@ -2,12 +2,18 @@
 
 {% extends "KEEGWebsiteBundle::structure.html.twig" %}
 
+{% block menu %}
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="{{ path('keeg_website_news') }}">News</a></li>
+		<li><a href="{{ path('keeg_website_articles') }}">Articles</a></li>
+		<li><a href="{{ path('keeg_website_temoignages') }}">Témoignages</a></li>
+	</ul>
+{% endblock %}
+
 {% block body %}
 
-  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
-
   {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
-  {% block keegwebsite_body %}
+  {% block keegarticle_body %}
   {% endblock %}
 
 {% endblock %}

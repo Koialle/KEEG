@@ -1,0 +1,13 @@
+{# src/KEEG/ArticleBundle/Resources/views/Article/menu.html.twig #}
+
+{# Ce template n'hérite de personne, tout comme le template inclus avec {{ include() }}. #}
+
+<ul class="nav nav-pills nav-stacked">
+  {% for item in listeItems %}
+    <li>
+      <a href="{{ path('keeg_article_view', {'id': item.id}) }}">
+        {{ item.titre }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

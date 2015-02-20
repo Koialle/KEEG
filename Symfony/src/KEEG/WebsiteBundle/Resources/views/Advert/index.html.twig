@@ -6,16 +6,38 @@
   Accueil {{ parent() }}
 {% endblock %}
 
+{% block menu %}
+	<h3>Accueil</h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="{{ path('keeg_website_news') }}">News</a></li>
+		<li><a href="{{ path('keeg_website_articles') }}">Articles</a></li>
+		<li><a href="{{ path('keeg_website_temoignages') }}">Témoignages</a></li>
+	</ul>
+{% endblock %}
+
 {% block keegwebsite_body %}
 
-  <h3>Presentation</h3>
+  	<h3>Presentation</h3>
 
-  <div class="well">
-	Ici se trouvera la description du site, cf. Introduction de Ophélie R. A réccupérer avec Doctrine.
-  </div>
+  	<div class="well">
+		Ici se trouvera la description du site, cf. Introduction de Ophélie R. A réccupérer avec Doctrine.
+  	</div>
 	
 	<center>
-  <iframe src="http://prezi.com/embed/kss4xcn4d8fd/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=0&amp;autohide_ctrls=0#" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0" height="400" width="550"></iframe>
-  </center>
+ 		<iframe src="http://prezi.com/embed/kss4xcn4d8fd/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=0&amp;autohide_ctrls=0#" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0" height="400" width="550"></iframe>
+  	</center>
   
+  	<hr />
+
+  	<h4>News <a href="{{ path('keeg_website_news') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
+
+  	<hr />
+
+  	<h4>Articles <a href="{{ path('keeg_website_articles') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
+  		{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 3, 'section': 'Articles'})) }}
+
+  	<hr />
+
+  	<h4>Témoignages <a href="{{ path('keeg_website_temoignages') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
+
 {% endblock %}

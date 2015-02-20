@@ -3,7 +3,7 @@
 #general paths :
 
 keeg_website_homepage:
-    path:     /index
+    path:     /
     defaults: { _controller: KEEGWebsiteBundle:Website:index }
 
 keeg_website_iut:
@@ -17,5 +17,17 @@ keeg_website_activities:
 keeg_website_forums:
     path:     /forums
     defaults: { _controller: KEEGForumBundle:Default:index, name: World }
+
+keeg_website_news:
+    path:     /news
+    defaults: { _controller: KEEGArticleBundle:Article:index, section: News }
+
+keeg_website_articles:
+    path:     /articles
+    defaults: { _controller: KEEGArticleBundle:Article:index, section: Articles }
+
+keeg_website_temoignages:
+    path:     /temoignages
+    defaults: { _controller: KEEGArticleBundle:Article:index, section: Témoignages }
 
 #specific paths (ie. News, Articles, ...) :
