@@ -49,7 +49,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="{{ path('keeg_website_contact') }}">Contact</a></li>
 				</ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -64,6 +64,9 @@
 			<a href="#"> Se connecter </a> | <a href="#"> S'inscrire </a>
 		</p>
     </header>
+
+    {% block messages_flash %}
+    {% endblock %}
 	
     <div class="row">
 

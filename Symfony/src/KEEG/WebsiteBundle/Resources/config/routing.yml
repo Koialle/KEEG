@@ -8,7 +8,7 @@ keeg_website_homepage:
 
 keeg_website_iut:
     path:     /IUT
-    defaults: { _controller: KEEGArticleBundle:Default:index, section: IT, name: World }
+    defaults: { _controller: KEEGArticleBundle:Universe:index }
 
 keeg_website_activities:
     path:     /activities
@@ -29,5 +29,9 @@ keeg_website_articles:
 keeg_website_temoignages:
     path:     /temoignages
     defaults: { _controller: KEEGArticleBundle:Article:index, section: Témoignages }
+
+keeg_website_contact:
+    path:     /contact
+    defaults: { _controller: KEEGWebsiteBundle:Website:contact }
 
 #specific paths (ie. News, Articles, ...) :
