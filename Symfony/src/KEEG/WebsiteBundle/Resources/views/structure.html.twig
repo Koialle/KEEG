@@ -9,8 +9,8 @@
 
   {% block stylesheets %}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="shortcut icon" href="/Symfony/web/favicon.ico">
-	<link rel"stylesheet" href="http://localhost/KEEG/Symfony/web/css/style.css">
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
   {% endblock %}
 </head>
 
@@ -86,25 +86,25 @@
     <footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-3 ">
 					<ul id="site" class="listeFooter">
 						<li> KEEG </li>
-						<li> <a href="#"> Acceuil </a> </li>
-						<li> <a href="#"> L'Informatique </a> </li>
-						<li> <a href="#"> A vous de jouer !</a> </li>
-						<li> <a href="#"> Forums </a> </li>
+						<li> <a href="{{ path('keeg_website_homepage') }}"> Acceuil </a> </li>
+						<li> <a href="{{ path('keeg_website_iut') }}"> L'Informatique </a> </li>
+						<li> <a href="{{ path('keeg_website_activities') }}"> A vous de jouer !</a> </li>
+						<li> <a href="{{ path('keeg_website_forums') }}"> Forums </a> </li>
 					</ul>
 				</div>
-				<div class="col-lg-3 ">
-					<ul id="contacts">
+				<div class="col-lg-3">
+					<ul id="contacts" class="listeFooter">
 						<li> Contacts <li>
 						<li> <a href="http://iut.univ-lyon1.fr/"> IUT Claude Bernard Lyon 1</a> </li>
 						<li> <a href="#"> Équipe de KEEGProject </a> </li>
 						<li> <a href="#"> Lien3</a> </li>
 					</ul>
 				</div>
-				<div class="col-lg-3 listeFooter">
-					<ul id="voir_aussi">
+				<div class="col-lg-3">
+					<ul id="voir_aussi" class="listeFooter">
 						<li> Voir aussi... <li>
 						<li> <a href="http://openclassrooms.com/"> Open Classroom </a> </li>
 						<li> <a href="#"> Lien2 </a> </li>
@@ -114,10 +114,10 @@
 				<div class="col-lg-3">
 					<table>
 						<tr>
-							<td> <a href="https://www.facebook.com/keegiutlyon"> <img src="http://localhost/KEEG/Symfony/web/image/fb.png"> </a> </td>
-							<td> <a href="#" > <img src="http://localhost/KEEG/Symfony/web/image/twitter.png"> </a> </td>
-							<td> <a href="#"> <img src="http://localhost/KEEG/Symfony/web/image/rss.png"> </a> </td>
-							<td> <a href="#"> <img src="http://localhost/KEEG/Symfony/web/image/google.png"> </a> </td>
+							<td> <a href="https://www.facebook.com/keegiutlyon"> <img src="{{ asset('image/fb.png') }}"> </a> </td>
+							<td> <a href="#" > <img src="{{ asset('image/twitter.png') }}"> </a> </td>
+							<td> <a href="#"> <img src="{{ asset('image/rss.png') }}"></a> </td>
+							<td> <a href="#"> <img src="{{ asset('image/google.png') }}"></a> </td>
 						</tr>
 					</table>
 			</div>
@@ -127,10 +127,9 @@
   </div>
 
   {% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="http://localhost/KEEG/Symfony/web/js/script.js"></script>
+	<script src="{{ asset('js/script.js') }}"></script>
   {% endblock %}
 
 </body>

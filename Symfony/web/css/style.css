@@ -2,6 +2,6 @@
 	list-style-type:none;
 }
 
-body{
-	background-color:red;
+.fixe{
+	position:fixed;
 }
