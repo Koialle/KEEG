@@ -4,10 +4,22 @@
 
 <ul class="nav nav-pills nav-stacked">
   {% for item in listeItems %}
+
+  {#
     <li>
       <a href="{{ path('keeg_article_view', {'id': item.id}) }}">
         {{ item.titre }}
       </a>
     </li>
+#}
+    <div class="col-md-2">
+		<img src="{{ asset('image/default.png') }}">
+	</div>
+	<div class="col-md-3">
+		<p>
+			{{ item.titre }}<br />
+			<a href="{{ path('keeg_article_view', {'id': item.id}) }}"> Voir suite... </a>
+		</p>
+	</div>
   {% endfor %}
 </ul>

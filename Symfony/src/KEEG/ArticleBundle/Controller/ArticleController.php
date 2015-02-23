@@ -66,8 +66,8 @@ class ArticleController extends Controller
         if($section == 'Articles'){
             $listeItems = array(
               array('id' => 1, 'titre' => 'Les prégugés du GEEK'),
-              array('id' => 2, 'titre' => 'Les 5 règles d\'Or pour réussir en info'),
-              array('id' => 3, 'titre' => 'Le Restaurant Universitaire du Campus de la Doua')
+              array('id' => 2, 'titre' => 'Les 5 règles d\'Or pour réussir en info')
+              //array('id' => 3, 'titre' => 'Le Restaurant Universitaire du Campus de la Doua')
             );
         }
 
