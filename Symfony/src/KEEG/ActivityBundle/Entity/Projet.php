@@ -2,6 +2,7 @@
 
 namespace KEEG\ActivityBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -59,6 +60,10 @@ class Projet
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+
+    public function __construct(){
+        $this->categories = new ArrayCollection();
+    }
 
 
     /**
@@ -199,9 +204,11 @@ class Projet
      * @param \KEEG\ActivityBundle\Entity\Categorie $categories
      * @return Projet
      */
-    public function addCategory(\KEEG\ActivityBundle\Entity\Categorie $categories)
+    public function addCategory(\KEEG\ActivityBundle\Entity\Categorie $categorie)
     {
-        $this->categories[] = $categories;
+        $this->categories[] = $categorie;
+
+        $categorie->addProjet($this);
 
         return $this;
     }
@@ -211,9 +218,11 @@ class Projet
      *
      * @param \KEEG\ActivityBundle\Entity\Categorie $categories
      */
-    public function removeCategory(\KEEG\ActivityBundle\Entity\Categorie $categories)
+    public function removeCategory(\KEEG\ActivityBundle\Entity\Categorie $categorie)
     {
-        $this->categories->removeElement($categories);
+        $this->categories->removeElement($categorie);
+
+        $categorie->removeProjet($this);
     }
 
     /**

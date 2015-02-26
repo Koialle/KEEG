@@ -2,6 +2,7 @@
 
 namespace KEEG\ActivityBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +33,10 @@ class Categorie
      *  @ORM\ManyToMany(targetEntity="KEEG\ActivityBundle\Entity\Projet", mappedBy="categories")
      */
     private $projets;
+
+    public function __construct(){
+        $this->projets = new ArrayCollection();
+    }
 
     /**
      * Get id
