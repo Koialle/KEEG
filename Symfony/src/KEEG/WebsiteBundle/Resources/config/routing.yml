@@ -16,7 +16,7 @@ keeg_website_activities:
 
 keeg_website_forums:
     path:     /forums
-    defaults: { _controller: KEEGForumBundle:Default:index, name: World }
+    defaults: { _controller: KEEGForumBundle:Forum:index }
 
 keeg_website_news:
     path:     /news
@@ -33,5 +33,9 @@ keeg_website_temoignages:
 keeg_website_contact:
     path:     /contact
     defaults: { _controller: KEEGWebsiteBundle:Website:contact }
+
+keeg_website_about:
+    path:    /about
+    defaults: { _controller: KEEGWebsiteBundle:Website:about }
 
 #specific paths (ie. News, Articles, ...) :

@@ -21,4 +21,12 @@ class WebsiteController extends Controller
 
     	return $this->redirect($this->generateUrl('keeg_website_homepage'));
     }
+	
+	public function aboutAction(Request $request)
+    {
+    	$session = $request->getSession();
+    	$session->getFlashBag()->add('accueil', 'Cette page n\'est pas encore disponible, merci de revenir plus tard.');
+
+    	return $this->redirect($this->generateUrl('keeg_website_homepage'));
+    }
 }
