@@ -12,13 +12,10 @@ class UniverseController extends Controller
 {
 	public function indexAction(Request $request){
 
-        //return new Response('Coucou !');
-
         $session = $request->getSession();
 
-        $session->getFlashBag()->add('accueil', 'La page de l\'Univers de l\'informatique n\'est pas encore disponible, merci de revenir plus tard.');
-
-        return $this->redirect($this->generateUrl('keeg_website_homepage'));
+        $content = $this->get('templating')->render('KEEGArticleBundle:IUTInfo:index.html.twig');
+		return new Response($content);
 	}
 
 }
