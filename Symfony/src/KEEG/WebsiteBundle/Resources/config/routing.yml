@@ -12,7 +12,7 @@ keeg_website_iut:
 
 keeg_website_activities:
     path:     /activities
-    defaults: { _controller: KEEGActivityBundle:Default:index, name: World }
+    defaults: { _controller: KEEGActivityBundle:Activity:index }
 
 keeg_website_forums:
     path:     /forums
