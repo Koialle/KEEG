@@ -6,23 +6,13 @@
   A vous de jouer ! {{ parent() }}
 {% endblock %}
 
-{% block messages_flash %}
-  {% for message in app.session.flashbag.get('accueil') %}
-    <div class="alert alert-info alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      Message flash : {{ message }}
-    </div>
-  {% endfor %}
-{% endblock %}
-    
-
 
 {% block menu %}
 	<h3> A vous de jouer ! </h3>
 	<ul class="nav nav-pills nav-stacked">
-		<li><a href="#"> L'informatique : est-ce fait pour moi ?</a></li>
+		<li><a href={{ path('keeg_activity_quizzInfo') }}> L'informatique : est-ce fait pour moi ?</a></li>
 		<li><a href="#"> Hello World ! </a></li>
-		<li><a href="#"> Quizz </a></li>
+		<li><a href={{ path('keeg_activity_questionnaires') }}> Quizz </a></li>
 		<li><a href="#"> Testez des projets d'étudiants! </a></li>
 	</ul>
 {% endblock %}
@@ -56,7 +46,7 @@
 					<br />
 					<div class="row">
 						<center>
-							<a href="#"> Je fais le quizz ! </a>
+							<a href="{{ path('keeg_activity_questionnaires') }}"> Je fais le quizz ! </a>
 						</center>
 					</div>
 				</div>

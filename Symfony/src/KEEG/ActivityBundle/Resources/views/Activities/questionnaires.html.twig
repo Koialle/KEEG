@@ -1,0 +1,58 @@
+{# src/KEEG/WebsiteBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "KEEGActivityBundle::layout.html.twig" %}
+
+{% block title %}
+  A vous de jouer ! {{ parent() }}
+{% endblock %}
+
+
+{% block menu %}
+	<h3> A vous de jouer ! </h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href={{ path('keeg_activity_quizzInfo') }}> L'informatique : est-ce fait pour moi ?</a></li>
+		<li><a href="#"> Hello World ! </a></li>
+		<li><a href={{ path('keeg_activity_questionnaires') }}> Quizz </a></li>
+		<li><a href="#"> Testez des projets d'étudiants! </a></li>
+	</ul>
+{% endblock %}
+
+{% block keegactivities_body %}
+
+	<div class="container-fluid well">
+		<div class="col-lg-12">
+			<div class="row">
+				<h4>
+					<center> 
+						Découvrir son profil d'informatique 
+					<center>
+				</h4>
+				<div class="col-lg-12">
+					<div class="row">
+							<p>
+								L’informatique est-il un domaine fait pour toi ?
+								<br />
+								<a href={{ path('keeg_activity_quizzInfo') }}> Je fais le test </a>
+							</p>
+							<p>
+								Quelle formation d’informatique/cursus te convient le mieux ?
+								<br />
+								<a href={{ path('keeg_activity_quizzCursus') }}> Je fais le test </a>
+							</p>
+							<p>
+								Quelles compétences as-tu qui pourraient être un plus pour faire un DUT Informatique ?
+								<br />
+								<a href={{ path('keeg_activity_quizzCompetences') }}> Je fais le test </a>
+							</p>
+							<p>
+								Quel domaine d’informatique pourrait t’intéresser ?
+								<br />
+								<a href={{ path('keeg_activity_quizzDomaines') }}> Je fais le test </a>
+							</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ 
+{% endblock %}
