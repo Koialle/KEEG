@@ -1,0 +1,22 @@
+{# src/KEEG/ArticleBundle/Resources/views/Article/menu.html.twig #}
+
+{# Ce template n'hérite de personne, tout comme le template inclus avec {{ include() }}. #}
+
+<ul class="nav nav-pills nav-stacked">
+
+  {% for item in listeItems %}
+
+    <div class="col-md-2">
+		  <a href="{{ item.url }}" title="Cliquez pour voir le projet" target="_blank">
+        <img src="{{ item.image }}" alt="{{item.titre}}" width="100px" height="120px" />
+      </a>
+	  </div>
+	  <div class="col-md-3">
+      <h4>{{ item.titre }}</h4>
+		  <p>Par {{ item.auteur }}</p>
+      <p>{{ item.contenu }}</p>
+			<a href="{{ path('keeg_activity_projects_view', {'id': item.id}) }}"> Voir suite... </a>
+	  </div>
+  {% endfor %}
+
+</ul>
