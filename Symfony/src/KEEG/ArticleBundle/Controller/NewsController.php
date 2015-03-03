@@ -6,72 +6,54 @@ namespace KEEG\ArticleBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class ArticleController extends Controller
+class NewsController extends Controller
 {
-	public function indexAction($section){
-		if($section == 'Articles'){
-            //Une liste de News ou Articles ou Temoignages en dur (disons des Articles) :
-            $listeArticles = array(
-                array(
-                    'titre' => 'Les prégugés du GEEK',
-                    'id'    => 1,
-                    'auteur'=> 'Ophélie RODRIGUES',
-                    'content'   =>  '"Les geeks sont soit trop maigres ou trop gros, ils ont des boutons et ils portent des lunettes. Ils passent leur temps sur leur ordinateur et du coup ne voient jamais personne. Ils n\'ont donc pas d\'amis, d\'ailleurs ils font peur aux autres." Voilà l\'image que se font certaines personnes des geeks. Ce qu\'il faut savoir, c\'est que ce n\'est pas du tout la réalité. Dans la réalité, vous et moi sommes des geeks. Oui, allez voir dans un dictionnaire le véritable sens du mot geek, ce mot désigne des personnes passionnées par leur domaine d\'activité. Et non spécifiquement des accros du jeu vidéo, cela peut également faire référence à un fou de cuisine ! Qui sait.',
-                    'date'  => new \Datetime()
-                    ),
-                array(
-                    'titre' => 'Les 5 règles d\'Or pour réussir en info',
-                    'id'    => 2,
-                    'auteur'=> 'Mélanie DUBREUIL',
-                    'content'   =>  'Un autre article.',
-                    'date'  => new \Datetime()
-                    ),
-                array(
-                    'titre' => 'Le Restaurant Universitaire du Campus de la Doua',
-                    'id'    => 3,
-                    'auteur'=> 'KAREN OUBARHOU',
-                    'content'   =>  'Encore un autre article.',
-                    'date'  => new \Datetime()
-                    )
-            );
+	public function indexAction(){
+		$listeNews = array(
+			array(
+				'titre' => 'Journée porte ouverte',
+				'id'    => 1,
+				'content'   =>  '26/01: Les journées portes ouvertes de l\'IUT. Venez découvrir la formation et échanger avec les étudiants.',
+				'date'  => new \Datetime()
+				),
+			array(
+				'titre' => 'News 2',
+				'id'    => 2,
+				'content'   =>  'Une super news.',
+				'date'  => new \Datetime()
+				),
+			array(
+				'titre' => 'News 3',
+				'id'    => 3,
+				'content'   =>  'A cours d\idées.',
+				'date'  => new \Datetime()
+				)
+		);
 
-
-            return $this->render('KEEGArticleBundle:Default:index.html.twig', array('section' => $section, 'listeArticles' => $listeArticles));
-        }
-
-        return $this->render('KEEGArticleBundle:Default:index.html.twig', array('section' => $section, 'listeArticles' => array()));
+		return $this->render('KEEGArticleBundle:Article:index.html.twig', array('section' => 'News', 'listeNews' => $listeNews));
 	}
 
 	public function viewAction($id){
 
 		$article = array(
-            'titre' => 'Les prégugés du GEEK',
-            'id'    => $id,
-            'auteur'=> 'Ophélie RODRIGUES',
-            'content'   =>  '"Les geeks sont soit trop maigres ou trop gros, ils ont des boutons et ils portent des lunettes. Ils passent leur temps sur leur ordinateur et du coup ne voient jamais personne. Ils n\'ont donc pas d\'amis, d\'ailleurs ils font peur aux autres." Voilà l\'image que se font certaines personnes des geeks. Ce qu\'il faut savoir, c\'est que ce n\'est pas du tout la réalité. Dans la réalité, vous et moi sommes des geeks. Oui, allez voir dans un dictionnaire le véritable sens du mot geek, ce mot désigne des personnes passionnées par leur domaine d\'activité. Et non spécifiquement des accros du jeu vidéo, cela peut également faire référence à un fou de cuisine ! Qui sait.',
-            'date'  => new \Datetime()
+			'titre' => 'Journée porte ouverte',
+			'id'    => 1,
+			'content'   =>  '26/01: Les journées portes ouvertes de l\'IUT. Venez découvrir la formation et échanger avec les étudiants.',
+			'date'  => new \Datetime()
         );
 
-		return $this->render('KEEGArticleBundle:Article:view.html.twig', array(
-			'article' => $article
-		));
+		return $this->render('KEEGArticleBundle:Article:view.html.twig', array('section' => 'News', 'article' => $article));
 
 	}
 
 	public function menuAction($limit){
-		
-		// On fixe en dur une liste ici, bien entendu par la suite
-		// on la récupérera depuis la BDD !
-		$listeArticles = array(
-		  array('id' => 1, 'titre' => 'Les prégugés du GEEK'),
-		  array('id' => 2, 'titre' => 'Les 5 règles d\'Or pour réussir en info'),
-		  array('id' => 3, 'titre' => 'Le Restaurant Universitaire du Campus de la Doua')
+	
+		$listeItems = array(
+		  array('id' => 1, 'titre' => 'Journée porte ouverte', 'content' => '26/01: Les journées [...]'),
+		  array('id' => 2, 'titre' => 'News 2', 'content' => 'Une super [...]'),
+		  array('id' => 3, 'titre' => 'News 3', 'content' => 'A cours [...]')
 		);
 
-		return $this->render('KEEGArticleBundle:Article:menu.html.twig', array(
-		  // Tout l'intérêt est ici : le contrôleur passe
-		  // les variables nécessaires au template !
-		  'listeArticles' => $listeArticles
-		));
+		return $this->render('KEEGArticleBundle:Article:menu.html.twig', array('section' => 'News','listeItems' => $listeItems));
 	}
 }

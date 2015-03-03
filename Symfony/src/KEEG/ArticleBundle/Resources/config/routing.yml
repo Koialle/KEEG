@@ -1,6 +1,41 @@
+keeg_article_index:
+    path:    /articles/
+    defaults: {_controller: KEEGArticleBundle:Article:index }
+
+keeg_article_menu:
+    path: /articles/
+    defaults: {_controller: KEEGArticleBundle:Article:menu }
 
 keeg_article_view:
     path:     /articles/{id}
     defaults: { _controller: KEEGArticleBundle:Article:view }
+    requirements:
+        id:   \d+
+
+keeg_news_index:
+    path:    /news/
+    defaults: {_controller: KEEGArticleBundle:News:index }
+
+keeg_news_menu:
+    path: /news/
+    defaults: {_controller: KEEGArticleBundle:News:menu }
+
+keeg_news_view:
+    path:     /news/{id}
+    defaults: { _controller: KEEGArticleBundle:News:view }
+    requirements:
+        id:   \d+
+
+keeg_temoignage_index:
+    path:    /temoignages/
+    defaults: {_controller: KEEGArticleBundle:Temoignage:index }
+
+keeg_temoignage_menu:
+    path: /temoignages/
+    defaults: {_controller: KEEGArticleBundle:Temoignage:menu }
+
+keeg_temoignage_view:
+    path:     /temoignages/{id}
+    defaults: { _controller: KEEGArticleBundle:Temoignage:view }
     requirements:
         id:   \d+

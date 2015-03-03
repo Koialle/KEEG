@@ -20,15 +20,15 @@ keeg_website_forums:
 
 keeg_website_news:
     path:     /news
-    defaults: { _controller: KEEGArticleBundle:Article:index, section: News }
+    defaults: { _controller: KEEGArticleBundle:News:index}
 
 keeg_website_articles:
     path:     /articles
-    defaults: { _controller: KEEGArticleBundle:Article:index, section: Articles }
+    defaults: { _controller: KEEGArticleBundle:Article:index}
 
 keeg_website_temoignages:
     path:     /temoignages
-    defaults: { _controller: KEEGArticleBundle:Article:index, section: Témoignages }
+    defaults: { _controller: KEEGArticleBundle:Temoignage:index}
 
 keeg_website_contact:
     path:     /contact

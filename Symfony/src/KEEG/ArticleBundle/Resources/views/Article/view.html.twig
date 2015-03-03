@@ -3,7 +3,12 @@
 {% extends "KEEGArticleBundle::layout.html.twig" %}
 
 {% block title %}
-	{{ article.titre }} - {{ parent() }}
+	{% if section is same as ('Temoignages') %}
+		{{ article.temoin }} - {{ parent() }}
+	{% else %}
+		{{ article.titre }} - {{ parent() }}
+	{% endif %}
+	
 {% endblock %}
 
 {% block keegarticle_body %}
@@ -13,16 +18,37 @@
 		<img src="{{ article.image.url }}" alt="{{ article.image.alt }}" />
 	{% endif %}
 	#}
+	
+  	{%if section is same as ('Article')%}
+	
+		<h2>{{ article.titre }}</h2>
+		<i>Par {{ article.auteur }}, le {{article.date|date('d/m/Y')}}</i>
 
+		<div class="well">
+			{{ article.content }}
+		</div>
+	
+	{% elseif section is same as ('News') %}
+	
+		<h2>{{ article.titre }}</h2>
+		<i>Le {{article.date|date('d/m/Y')}}</i>
 
-	<h2>{{ article.titre }}</h2>
-	<i>Par {{ article.auteur }}, le {{article.date|date('d/m/Y')}}</i>
+		<div class="well">
+			{{ article.content }}
+		</div>
+	
+	{% elseif section is same as ('Temoignages') %}
+	
+		<h2>{{ article.temoin }}</h2>
+		<i>Le {{article.date|date('d/m/Y')}}</i>
 
-	<div class="well">
-		{{ article.content }}
-	</div>
+		<div class="well">
+			{{ article.content }}
+		</div>
 
-
+	{% endif %}
+	
+	
 	<p class="text-right">
 		<a href="{{ path('keeg_website_homepage') }}" class="btn btn-default">
 			<i class="glyphicon glyphicon-chevron-left"></i>

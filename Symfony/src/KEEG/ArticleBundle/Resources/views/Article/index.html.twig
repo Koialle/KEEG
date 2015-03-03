@@ -9,26 +9,55 @@
 {% block keegarticle_body %}
 
   	<h3>{{ section }}</h3>
-  
-  	{% if listeItems|length > 0 %}
-	  	{% for item in listeItems %}
 
-	  		{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 10, 'section': section})) }}
+	{%if section is same as ('Article')%}
+	
+		{% if listeArticles|length > 0 %}
+			{% for article in listeArticles %}
 
-	  		{#
-		  	<h4> {{ item.titre }} </h4>
-		  	<i> Par {{item.auteur}}, le {{item.date|date('d/m/Y')}}</i>
+				{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 10, 'section': section})) }}
 
-		  	<div class="well">
-		  		{{ item.content }}
-		  	</div>
-		  	#}
+				{#
+				<h4> {{ article.titre }} </h4>
+				<i> Par {{article.auteur}}, le {{article.date|date('d/m/Y')}}</i>
 
-		{% endfor %}
-	{% else %}
-		Cette section est vide pour l'instant.
+				<div class="well">
+					{{ article.content }}
+				</div>
+				#}
+
+			{% endfor %}
+		{% else %}
+			Cette section est vide pour l'instant.
+		{% endif %}
+		
+	{% elseif section is same as ('News') %}
+	
+		{% if listeNews|length > 0 %}
+			{% for news in listeNews %}
+
+				{{ render(controller("KEEGArticleBundle:News:menu", {'limit': 10, 'section': section})) }}
+
+
+			{% endfor %}
+		{% else %}
+			Cette section est vide pour l'instant.
+		{% endif %}
+	
+	{% elseif section is same as ('Temoignages') %}
+	
+		{% if listeTemoignages|length > 0 %}
+			{% for temoignage in listeTemoignages %}
+
+				{{ render(controller("KEEGArticleBundle:Temoignage:menu", {'limit': 10})) }}
+
+			{% endfor %}
+		{% else %}
+			Cette section est vide pour l'instant.
+		{% endif %}
+	
 	{% endif %}
-  
+
 	{% if section is same as('IT') %}
 		<center>
 		    <iframe src="http://prezi.com/embed/kss4xcn4d8fd/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=0&amp;autohide_ctrls=0#" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0" height="400" width="550"></iframe>
