@@ -81,6 +81,6 @@ class ArticleController extends Controller
         $session = $request->getSession();
         $session->getFlashBag()->add('admin', 'L\'article a bien été ajouté.');
 
-        return $this->redirect($this->generateUrl('keeg_admin_homepage'))
+        return $this->redirect($this->generateUrl('keeg_admin_homepage'));
     }
 }
