@@ -1,6 +1,17 @@
-
 keeg_article_view:
-    path:     /articles/{id}
+    path:    /articles/{id}
     defaults: { _controller: KEEGArticleBundle:Article:view }
     requirements:
         id:   \d+
+
+keeg_article_add:
+    path:    /articles/add
+    defaults: { _controller: KEEGArticleBundle:Article:add }
+
+keeg_article_edit:
+    path:    /articles/edit
+    defaults: {_controller: KEEGArticleBundle:Article:edit }
+
+keeg_article_delete:
+    path:    /articles/delete
+    defaults: {_controller: KEEGArticleBundle:Article:delete}

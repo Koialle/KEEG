@@ -1,10 +1,10 @@
 <?php
 
 // src/KEEG/ArticleBundle/Controller/ArticleController.php
-
 namespace KEEG\ArticleBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController extends Controller
 {
@@ -55,6 +55,8 @@ class ArticleController extends Controller
 		return $this->render('KEEGArticleBundle:Article:view.html.twig', array(
 			'article' => $article
 		));
+		
+		
 
 	}
 
@@ -74,5 +76,34 @@ class ArticleController extends Controller
 		return $this->render('KEEGArticleBundle:Article:menu.html.twig', array(
 		  'listeItems' => $listeItems
 		));
+		
+	}
+	
+	public function addAction(Request $request){
+		if($request->isMethod('POST')){
+			$request->getSession()->getFlashBag()->add('accueil', 'Article bien ajouté');
+			return $this->redirect($this->generateUrl('keeg_website_homepage'));
+		}
+		return $this->render('KEEGArticleBundle:Article:add.html.twig');
+	
+	}
+	
+	public function editAction(Request $request) {
+		if($request->isMethod('POST')) {
+			$request->getSession()->getFlashBag()->add('accueil', 'Article modifié');
+			return $this->redirect($this->generateUrl('keeg_website_homepage'));
+		}
+		return $this->render('KEEGArticleBundle:Article:edit.html.twig');
+		
+	}
+	
+	public function deleteAction(Request $request) {
+		if($request->isMethod('POST')) {
+			$request->getSession()->getFlashBag()->add('accueil', 'Article supprimé');
+			return $this->redirect($this->generateUrl('keeg_website_homepage'));
+		}
+		return $this->render('KEEGArticleBundle:Article:delete.html.twig');
+		
+		
 	}
 }
