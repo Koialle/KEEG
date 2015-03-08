@@ -4,6 +4,7 @@ namespace KEEG\ActivityBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Projet
@@ -23,7 +24,8 @@ class Projet
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\File
      */
     private $image;
 
@@ -60,11 +62,6 @@ class Projet
      * @ORM\Column(name="description", type="text")
      */
     private $description;
-
-    public function __construct(){
-        $this->categories = new ArrayCollection();
-    }
-
 
     /**
      * Get id

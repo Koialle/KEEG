@@ -1,0 +1,24 @@
+{# src/KEEG/ActivityBundle/Resources/views/Projects/add.html.twig #}
+
+{% extends "KEEGActivityBundle::layout.html.twig" %}
+
+{% block title %}
+	Ajouter un projet {{ parent() }}
+{% endblock %}
+
+{% block keegactivities_body %}
+
+	<h3>Formulaire de modification</h3>
+
+	<div class="well">
+		Ici se trouvera le formulaire de modification.
+	</div>
+
+	<p>
+    	<a href="{{ path('keeg_website_homepage') }}" class="btn btn-default">
+      		<i class="glyphicon glyphicon-chevron-left"></i>
+      		Retour à l'accueil
+    	</a>
+  	</p>
+
+{% endblock %}

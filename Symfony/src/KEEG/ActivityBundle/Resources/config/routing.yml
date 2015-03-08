@@ -1,7 +1,3 @@
-keeg_activity_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: KEEGActivityBundle:Default:index }
-
 keeg_activity_projects:
     path:     /projects
     defaults: { _controller: KEEGActivityBundle:Project:index }
