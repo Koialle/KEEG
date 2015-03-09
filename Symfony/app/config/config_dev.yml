@@ -46,5 +46,5 @@ assetic:
 
 swiftmailer:
     transport: gmail
-    username: KEEG
+    username: keegiut
     password: mookadmin2015
