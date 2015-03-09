@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new KEEG\WebsiteBundle\KEEGWebsiteBundle(),
             new KEEG\ForumBundle\KEEGForumBundle(),
             new KEEG\ActivityBundle\KEEGActivityBundle(),
-            new KEEG\AdminBundle\KEEGAdminBundle(),
             new KEEG\ArticleBundle\KEEGArticleBundle(),
         );
 
