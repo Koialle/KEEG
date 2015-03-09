@@ -1,25 +1,24 @@
-{# scr/KEEG/WebsiteBundle/Resources/views/structure.html.twig #}
+{# src/KEEG/WebsiteBundle/Resources/views/Advert/index.html.twig #}
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
 
-  <title>{% block title %} - KEEG Project{% endblock %}</title>
+  <title> Contact - KEEG Project </title>
 
   {% block stylesheets %}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
   {% endblock %}
+  
 </head>
 
 <body>
 
   <div class="container">
-  
-	<!-- Static navbar -->
-    <nav class="navbar navbar-default ">
+    <nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -65,24 +64,88 @@
 		</p>
     </header>
 
-    {% block messages_flash %}
-    {% endblock %}
-	
-    <div class="row">
 
-		<div id="menu" class="col-md-3">
-			{% block menu %}
-			{% endblock %}
-		</div>
-		<div id="content" class="col-md-9">
-			{% block body %}
-			{% endblock %}
-		</div>
+
+{% block messages_flash %}
+  {% for message in app.session.flashbag.get('accueil') %}
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      Message flash : {{ message }}
     </div>
+  {% endfor %}
+{% endblock %}
+    
 
-    <hr>
+<div class="row">
+		<div id="content" class="col-md-12">
+			<h3>
+				<center>
+					Questions ? Suggestions ?
+				</center>
+			</h3>
+			<br />
 
-    <footer>
+			<div class="container-fluid well">
+			
+				<div class="col-lg-12">
+					{{ form_errors(form) }}
+					<div class="form-group">
+						{{ form_label(form.title,"Objet du mail",{'label_attr':{'class': 'col-lg-3 control-label'}}) }}
+						{{ form_errors(form.title) }}
+						
+						<div class="col-lg-4">
+							{{ form_widget(form.title, {'attr': {'class':'form-control'}}) }}
+						</div>
+					</div>	
+				</div>
+				
+				<div class="col-lg-12">
+					{{ form_errors(form) }}
+					<div class="form-group">
+						{{ form_label(form.content,"Contenu du mail",{'label_attr':{'class': 'col-lg-3 control-label'}}) }}
+						{{ form_errors(form.content) }}
+						
+						<div class="col-lg-4">
+							{{ form_widget(form.content, {'attr': {'class':'form-control'}}) }}
+						</div>
+					</div>	
+				</div>
+					
+				<div class="col-lg-12">
+					{{ form_errors(form) }}
+					<div class="form-group">
+						{{ form_label(form.name,"Votre prénom",{'label_attr':{'class': 'col-lg-3 control-label'}}) }}
+						{{ form_errors(form.name) }}
+						
+						<div class="col-lg-4">
+							{{ form_widget(form.name, {'attr': {'class':'form-control'}}) }}
+						</div>
+					</div>	
+				</div>
+				
+				<div class="col-lg-12">
+					{{ form_errors(form) }}
+					<div class="form-group">
+						{{ form_label(form.mail,"Votre e-mail",{'label_attr':{'class': 'col-lg-3 control-label'}}) }}
+						{{ form_errors(form.mail) }}
+						
+						<div class="col-lg-4">
+							{{ form_widget(form.mail, {'attr': {'class':'form-control'}}) }}
+						</div>
+					</div>	
+				</div>
+				
+				<div class="col-lg-12">
+					<div class="col-lg-4 ">
+						{{ form_widget(form.send, {'attr': {'class': 'btn btn-primary'}}) }}
+					</div>
+				</div>
+				
+				{{ form_rest(form) }}
+				{{ form_end(form) }}
+			</div>
+			
+	<footer>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 ">
@@ -120,13 +183,7 @@
 		</div>					
     </footer>
 	
-  </div>
-
-  {% block javascripts %}
+{% block javascripts %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="{{ asset('js/script.js') }}"></script>
-  {% endblock %}
-
-</body>
-</html>
+{% endblock %}

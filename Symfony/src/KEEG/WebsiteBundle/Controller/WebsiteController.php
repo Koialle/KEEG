@@ -5,6 +5,8 @@ namespace KEEG\WebsiteBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use KEEG\WebsiteBundle\Entity\Contact;
+
 
 class WebsiteController extends Controller
 {
@@ -16,17 +18,53 @@ class WebsiteController extends Controller
 
     public function contactAction(Request $request)
     {
-    	$session = $request->getSession();
-    	$session->getFlashBag()->add('accueil', 'La page de contact n\'est pas encore disponible, merci de revenir plus tard.');
-
-    	return $this->redirect($this->generateUrl('keeg_website_homepage'));
+		
+		$contact = new Contact();
+		
+		$form = $this->createFormBuilder($contact)
+		  ->add('title','text')
+		  ->add('content','textarea')
+		  ->add('name','text')
+		  ->add('mail', 'email')
+		  ->add('send','submit')
+		  ->getForm();
+		
+		$form-> handleRequest($request);
+		
+		
+		if($form->isSubmitted()){
+			
+			$message = \Swift_Message::newInstance()
+				->setSubject($contact->getTitle())
+				->setFrom($contact->getMail())
+				->setTo('keegiut@gmail.com')
+				->setBody(
+					$this->renderView(
+						'KEEGWebsiteBundle:Mail:contact.html.twig',
+						array(
+							'name' => $contact->getName(),
+							'message' => $contact->getContent()
+						)
+					)
+				);
+				
+			$this->get('mailer')->send($message);
+			
+			$session = $request->getSession();
+			$session->getFlashBag()->add('accueil', 'Votre e-mail a bien été envoyé, merci !');
+			return $this->redirect($this->generateUrl('keeg_website_homepage'));
+			
+		}
+		
+		return $this->render('KEEGWebsiteBundle:Advert:contact.html.twig', array(
+		  'form' => $form->createView(),
+		));
+	
     }
 	
-	public function aboutAction(Request $request)
+	public function aboutAction()
     {
-    	$session = $request->getSession();
-    	$session->getFlashBag()->add('accueil', 'Cette page n\'est pas encore disponible, merci de revenir plus tard.');
-
-    	return $this->redirect($this->generateUrl('keeg_website_homepage'));
+    	$content = $this->get('templating')->render('KEEGWebsiteBundle:Advert:about.html.twig');
+		return new Response($content);
     }
 }

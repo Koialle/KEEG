@@ -9,3 +9,8 @@
 .textJustify{
 	text-align:justify;
 }
+
+.espaceTable{
+	border-spacing:20px 0px;
+	border-collapse:separate;
+}
