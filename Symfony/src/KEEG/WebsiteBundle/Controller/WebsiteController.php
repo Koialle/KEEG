@@ -21,18 +21,18 @@ class WebsiteController extends Controller
 		
 		$contact = new Contact();
 		
-		$form = $this->createFormBuilder($contact)
-		  ->add('title','text')
-		  ->add('content','textarea')
-		  ->add('name','text')
-		  ->add('mail', 'email')
-		  ->add('send','submit')
-		  ->getForm();
+		$form = $this->get('form.factory')->createBuilder('form', $contact)
+		  	->add('title',	'text')
+		  	->add('content',	'textarea')
+		  	->add('name',		'text')
+		  	->add('mail', 	'email')
+		  	->add('envoyer',	'submit')
+		  	->getForm()
+		;
 		
 		$form-> handleRequest($request);
 		
-		
-		if($form->isSubmitted()){
+		if($form->isValid()){
 			
 			$message = \Swift_Message::newInstance()
 				->setSubject($contact->getTitle())
@@ -57,7 +57,7 @@ class WebsiteController extends Controller
 		}
 		
 		return $this->render('KEEGWebsiteBundle:Advert:contact.html.twig', array(
-		  'form' => $form->createView(),
+		  'form' => $form->createView()
 		));
 	
     }
