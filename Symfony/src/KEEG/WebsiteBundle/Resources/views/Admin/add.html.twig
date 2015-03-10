@@ -1,0 +1,36 @@
+{# src/KEEG/WebsiteBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "KEEGWebsiteBundle::admin.html.twig" %}
+
+{% block title %}
+  Accueil {{ parent() }}
+{% endblock %}
+
+{% block messages_flash %}
+  {% for message in app.session.flashbag.get('admin') %}
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      Message flash : {{ message }}
+    </div>
+  {% endfor %}
+{% endblock %}
+    
+{% block menu %}
+	<h3>Index</h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="#">News</a></li>
+		<li><a href="#">Articles</a></li>
+		<li><a href="#">Témoignages</a></li>
+		<li><a href="#">Projets</a></li>
+	</ul>
+{% endblock %}
+
+{% block body %}
+	<h2>Panel d'administration</h2><hr>
+
+	{% if section is same as("Projet") %}
+		{{ render(controller("KEEGActivityBundle:Project:add")) }}
+	{% endif %}
+
+
+{% endblock %}

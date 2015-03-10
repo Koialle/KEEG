@@ -38,4 +38,12 @@ keeg_website_about:
     path:    /about
     defaults: { _controller: KEEGWebsiteBundle:Website:about }
 
+keeg_website_admin:
+    path:    /administration
+    defaults: { _controller: KEEGWebsiteBundle:Admin:index }
+
+keeg_activity_projects_add:
+    path:    /administration/projet/add
+    defaults: { _controller: KEEGWebsiteBundle:Admin:add, section: Projet }
+
 #specific paths (ie. News, Articles, ...) :
