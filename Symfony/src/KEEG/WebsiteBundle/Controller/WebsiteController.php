@@ -35,15 +35,16 @@ class WebsiteController extends Controller
 		if($form->isValid()){
 			
 			$message = \Swift_Message::newInstance()
-				->setSubject($contact->getTitle())
-				->setFrom($contact->getMail())
+				->setSubject($form->get('title')->getData())
+				->setFrom($form->get('mail')->getData())
 				->setTo('keegiut@gmail.com')
 				->setBody(
 					$this->renderView(
 						'KEEGWebsiteBundle:Mail:contact.html.twig',
 						array(
-							'name' => $contact->getName(),
-							'message' => $contact->getContent()
+							'name' => $form->get('name')->getData(),
+							'message' => $form->get('content')->getData(),
+							'mail' => $form->get('mail')->getData()
 						)
 					)
 				);
