@@ -14,3 +14,24 @@
 	border-spacing:20px 0px;
 	border-collapse:separate;
 }
+
+/* starter-template.css */
+
+body {
+  background-image: url("../image/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.container {
+	padding-top: 70px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #ffffff;
+}

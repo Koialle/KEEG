@@ -9,7 +9,7 @@
 
   {% block stylesheets %}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+	<link rel="shortcut icon" href="{{ asset('image/k3d.png') }}">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
   {% endblock %}
 </head>
@@ -19,7 +19,7 @@
   <div class="container">
   
 	<!-- Static navbar -->
-    <nav class="navbar navbar-default {#navbar-fixed-top#}">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -32,7 +32,7 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li {#class="active"#}><a href="{{ path('keeg_website_admin') }}"><i class="glyphicon glyphicon-home"></i> Index</a></li>
+					<li class="active"><a href="{{ path('keeg_website_admin') }}"><i class="glyphicon glyphicon-home"></i> Index</a></li>
 					<li><a href="#">News</a></li>
 					<li><a href="#">Articles</a></li>
 					<li><a href="#">Témoignages</a></li>
@@ -47,6 +47,11 @@
 		<p>
 			Panel d'administration
 		</p>
+		<p>
+	        <a class="btn btn-primary btn-lg" href="{{ path('keeg_website_homepage') }}">
+	            Retourner sur KEEG Project »
+	        </a>
+	    </p>
     </header>
 
     {% block messages_flash %}
