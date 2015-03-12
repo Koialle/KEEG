@@ -29,9 +29,16 @@ body {
   text-align: center;
 }
 
+/* advance -personalization */
+
 .container {
 	padding-top: 70px;
 	padding-left: 20px;
 	padding-right: 20px;
 	background-color: #ffffff;
+}
+
+.img {
+	border-radius: 10px 10px;
+	padding-top: 20px;
 }

@@ -16,18 +16,18 @@ class ProjetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre', 'text')
-            ->add('url', 'url')
-            ->add('auteur', 'text')
-            ->add('description', 'textarea')
-            ->add('image', new ImageType())
+            ->add('titre',          'text')
+            ->add('url',            'url')
+            ->add('auteur',         'text')
+            ->add('description',    'textarea')
+            ->add('image',          new ImageType())
             ->add('categories', 'entity', array(
                 'class'     => 'KEEGActivityBundle:Categorie',
                 'property'  => 'nom',
                 'multiple'  => true,
                 'expanded'  => true
             ))
-            ->add('enregistrer', 'submit')
+            ->add('enregistrer',    'submit')
         ;
     }
     

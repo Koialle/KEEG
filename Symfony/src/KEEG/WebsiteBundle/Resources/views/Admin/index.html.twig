@@ -21,35 +21,36 @@
 		<li><a href="#">News</a></li>
 		<li><a href="#">Articles</a></li>
 		<li><a href="#">Témoignages</a></li>
-		<li><a href="#">Projets</a></li>
+		<li><a href="{{ path('keeg_admin_projects') }}">Projets</a></li>
 	</ul>
 {% endblock %}
 
-{% block body %}
+{% block admin_body %}
 	<h2>Panel d'administration</h2><hr>
 
 	<div class="row">
 		<div class="col-lg-3">
-			<a href="{{ path('keeg_activity_projects_add') }}">
+			<a href="{{ path('keeg_admin_projects_add') }}">
 				<button type="button" class="btn btn-default btn-lg">
-				  <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Ajouter un projet
+				  <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Nouveau projet
 				</button>
 			</a>
 			<a href="#">
 				<button type="button" class="btn btn-default btn-lg">
-				  <span class=" glyphicon glyphicon-tag" aria-hidden="true"></span> Ajouter un article
+				  <span class=" glyphicon glyphicon-tag" aria-hidden="true"></span> Nouvel article
 				</button>
 			</a>
 			<a href="#">
 				<button type="button" class="btn btn-default btn-lg">
-				  <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Ajouter un témoignage
+				  <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Nouveau témoignage
 				</button>
 			</a>
 			<a href="#">
 				<button type="button" class="btn btn-default btn-lg">
-				  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Ajouter une actualité
+				  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Nouvelle actualité
 				</button>
 			</a>
 		</div>
 	</div>
+	
 {% endblock %}

@@ -3,7 +3,7 @@
 {% extends "KEEGWebsiteBundle::admin.html.twig" %}
 
 {% block title %}
-  Accueil {{ parent() }}
+  Index {{ parent() }}
 {% endblock %}
 
 {% block messages_flash %}
@@ -21,16 +21,29 @@
 		<li><a href="#">News</a></li>
 		<li><a href="#">Articles</a></li>
 		<li><a href="#">Témoignages</a></li>
-		<li><a href="#">Projets</a></li>
+		<li><a href="{{ path('keeg_admin_projects') }}">Projets</a></li>
 	</ul>
 {% endblock %}
 
-{% block body %}
+{% block admin_body %}
 	<h2>Panel d'administration</h2><hr>
 
-	{% if section is same as("Projet") %}
-		{{ render(controller("KEEGActivityBundle:Project:add")) }}
-	{% endif %}
+	<h3>Liste des projets</h3>
+	
+	<ul>
+		{% for projet in listeItems %}
 
+			<li>
+				<a href="{{ path('keeg_admin_projects_view', {'id': projet.id}) }}">
+					{{ projet.titre }}
+				</a>
+			</li>
+
+		{% else %}
+			
+			<li>Pas (encore !) de projets.</li>
+
+		{% endfor %}
+	</ul>
 
 {% endblock %}

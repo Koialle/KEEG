@@ -4,7 +4,6 @@ namespace KEEG\ActivityBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Projet
@@ -25,7 +24,7 @@ class Projet
 
     /**
      * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
-     * @Assert\File
+     * 
      */
     private $image;
 

@@ -42,8 +42,32 @@ keeg_website_admin:
     path:    /administration
     defaults: { _controller: KEEGWebsiteBundle:Admin:index }
 
-keeg_activity_projects_add:
-    path:    /administration/projet/add
-    defaults: { _controller: KEEGWebsiteBundle:Admin:add, section: Projet }
+# Administration specific paths
+
+keeg_admin_projects:
+    path:    /administration/projets
+    defaults: { _controller: KEEGWebsiteBundle:Project:index }
+
+keeg_admin_projects_view:
+    path:    /administration/projets/{id}
+    defaults: { _controller: KEEGWebsiteBundle:Project:view }
+    requirements:
+        id:   \d+
+
+keeg_admin_projects_add:
+    path:    /administration/projets/add
+    defaults: { _controller: KEEGWebsiteBundle:Project:add }
+
+keeg_admin_projects_edit:
+    path:    /administration/projets/edit/{id}
+    defaults: { _controller: KEEGWebsiteBundle:Project:edit }
+    requirements:
+        id:   \d+
+
+keeg_admin_projects_delete:
+    path:    /administration/projets/delete/{id}
+    defaults: { _controller: KEEGWebsiteBundle:Project:delete }
+    requirements:
+        id:   \d+
 
 #specific paths (ie. News, Articles, ...) :
