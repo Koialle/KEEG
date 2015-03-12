@@ -23,6 +23,10 @@ class ProjectController extends Controller
 
 		$project = $this->getDoctrine()->getManager()->getRepository('KEEGActivityBundle:Projet')->find($id);
 
+        if(null === $project){
+            throw new NotFoundHttpException("Le projet d'id ".$id." n'existe pas.");
+        }
+
 		return $this->render('KEEGWebsiteBundle:Projet:view.html.twig', array(
 			'project' => $project
 		));
@@ -111,7 +115,7 @@ class ProjectController extends Controller
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('admin', 'Le projet a bien été supprimé.');
-            return $this->redirect($this->generateUrl('keeg_website_admin'));
+            return $this->redirect($this->generateUrl('keeg_admin_projects'));
         }
         
         return $this->render('KEEGWebsiteBundle:Projet:delete.html.twig', array(

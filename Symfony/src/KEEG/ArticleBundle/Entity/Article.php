@@ -22,7 +22,7 @@ class Article
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
      */
     private $image;
 

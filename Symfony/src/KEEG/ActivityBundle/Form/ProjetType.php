@@ -19,6 +19,7 @@ class ProjetType extends AbstractType
             ->add('titre',          'text')
             ->add('url',            'url')
             ->add('auteur',         'text')
+            ->add('accroche',       'text')
             ->add('description',    'textarea')
             ->add('image',          new ImageType())
             ->add('categories', 'entity', array(

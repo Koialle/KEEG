@@ -44,6 +44,8 @@ keeg_website_admin:
 
 # Administration specific paths
 
+    # Projets
+
 keeg_admin_projects:
     path:    /administration/projets
     defaults: { _controller: KEEGWebsiteBundle:Project:index }
@@ -70,4 +72,31 @@ keeg_admin_projects_delete:
     requirements:
         id:   \d+
 
+    # Articles
+
+keeg_admin_articles:
+    path:    /administration/articles
+    defaults: { _controller: KEEGWebsiteBundle:Article:index }
+
+keeg_admin_articles_view:
+    path:    /administration/articles/{id}
+    defaults: { _controller: KEEGWebsiteBundle:Article:view }
+    requirements:
+        id:   \d+
+
+keeg_admin_articles_add:
+    path:    /administration/articles/add
+    defaults: { _controller: KEEGWebsiteBundle:Article:add }
+
+keeg_admin_articles_edit:
+    path:    /administration/articles/edit/{id}
+    defaults: { _controller: KEEGWebsiteBundle:Article:edit }
+    requirements:
+        id:   \d+
+
+keeg_admin_articles_delete:
+    path:    /administration/articles/delete/{id}
+    defaults: { _controller: KEEGWebsiteBundle:Article:delete }
+    requirements:
+        id:   \d+
 #specific paths (ie. News, Articles, ...) :

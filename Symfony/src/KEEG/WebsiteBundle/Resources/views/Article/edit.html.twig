@@ -1,0 +1,24 @@
+{# src/KEEG/ActivityBundle/Resources/views/Projects/add.html.twig #}
+
+{% extends "KEEGWebsiteBundle::admin.html.twig" %}
+
+{% block title %}
+	Modifier un article {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+		
+	<h3>Modifier un article</h3>
+
+	{{ include("KEEGWebsiteBundle:Article:form.html.twig") }}
+
+	<p class="text-right">
+	    <a href="{{ path('keeg_admin_articles_view', {'id': article.id}) }}" class="btn btn-default">
+      		<i class="glyphicon glyphicon-chevron-left"></i>
+      		Revenir à l'article
+    	</a>
+  	</p>
+
+
+{% endblock %}

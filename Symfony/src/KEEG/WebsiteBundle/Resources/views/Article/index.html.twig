@@ -16,35 +16,35 @@
 {% endblock %}
 
 {% block admin_body %}
-	<h2>Panel d'administration</h2><hr>
 
-	<a href="{{ path('keeg_admin_projects_add') }}">
+	<h2>Panel d'administration</h2><hr>
+	
+	<a href="{{ path('keeg_admin_articles_add') }}">
 		<button type="button" class="btn btn-default btn-lg">
-			<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Nouveau projet
+			<span class=" glyphicon glyphicon-tag" aria-hidden="true"></span> Nouvel article
 		</button>
 	</a>
 
-	<h3>Liste des projets</h3>
-
-	{% if listeItems|length > 0 %}
+	<h3> Liste des articles </h3>
 	
-	<ul>
-		{% for projet in listeItems %}
+	{% if listeItems|length > 0 %}
+		<ul>
+			{% for article in listeItems %}
 
-			<li>
-				<a href="{{ path('keeg_admin_projects_view', {'id': projet.id}) }}">
-					{{ projet.titre }}
-				</a>
-			</li>
-
-		{% endfor %}
-	</ul>
+				<li>
+					<a href="{{ path('keeg_admin_articles_view', {'id': article.id}) }}">
+						{{ article.titre }}
+					</a>
+				</li>
+				
+			{% endfor %}
+		</ul>
 
 	{% else %}
 
-		Aucun projet n'a été trouvé.
-		
+		Aucun article n'a été trouvé.
+
 	{% endif %}
-	
+
 
 {% endblock %}

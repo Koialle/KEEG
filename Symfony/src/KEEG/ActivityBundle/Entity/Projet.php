@@ -63,6 +63,13 @@ class Projet
     private $description;
 
     /**
+     * @var  string
+     *
+     * @ORM\Column(name="accroche", type="string", length=255)
+     */
+    private $accroche;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -229,5 +236,28 @@ class Projet
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set accroche
+     *
+     * @param string $accroche
+     * @return Projet
+     */
+    public function setAccroche($accroche)
+    {
+        $this->accroche = $accroche;
+
+        return $this;
+    }
+
+    /**
+     * Get accroche
+     *
+     * @return string 
+     */
+    public function getAccroche()
+    {
+        return $this->accroche;
     }
 }
