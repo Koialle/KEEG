@@ -23,7 +23,8 @@ class Projet
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
+     * 
      */
     private $image;
 
@@ -61,10 +62,12 @@ class Projet
      */
     private $description;
 
-    public function __construct(){
-        $this->categories = new ArrayCollection();
-    }
-
+    /**
+     * @var  string
+     *
+     * @ORM\Column(name="accroche", type="string", length=255)
+     */
+    private $accroche;
 
     /**
      * Get id
@@ -233,5 +236,28 @@ class Projet
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set accroche
+     *
+     * @param string $accroche
+     * @return Projet
+     */
+    public function setAccroche($accroche)
+    {
+        $this->accroche = $accroche;
+
+        return $this;
+    }
+
+    /**
+     * Get accroche
+     *
+     * @return string 
+     */
+    public function getAccroche()
+    {
+        return $this->accroche;
     }
 }

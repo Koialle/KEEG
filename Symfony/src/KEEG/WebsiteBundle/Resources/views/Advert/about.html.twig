@@ -1,0 +1,200 @@
+{# src/KEEG/WebsiteBundle/Resources/views/Advert/index.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title> About - KEEG Project </title>
+
+  {% block stylesheets %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="{{ asset('image/k3d.png') }}">
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
+  {% endblock %}
+  
+</head>
+
+<body>
+
+  <div class="container">
+  
+	<!-- Static navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{ path('keeg_website_homepage') }}">KEEGProject</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{{ path('keeg_website_homepage') }}"><i class="glyphicon glyphicon-home"></i> Accueil</a></li>
+					<li><a href="{{ path('keeg_website_iut') }}">L'Univers de l'Informatique</a></li>
+					<li><a href="{{ path('keeg_website_activities') }}">A vous de jouer !</a></li>
+					<li class="dropdown">
+						<a href="{{ path('keeg_website_forums') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Forums <span class="caret"></span>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Poser une question à la communauté KEEG </a></li>
+							<li><a href="#">Voir mes dernières réponses</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">Derniers sujets </li>
+							<li><a href="#">HELP : Lettre de motivation IUT</a></li>
+							<li><a href="#">Informatique : Difficile ou pas ?</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="{{ path('keeg_website_about') }}">About</a></li>
+					<li><a href="{{ path('keeg_website_contact') }}">Contact</a></li>
+				</ul>
+            </div>
+        </div>
+    </nav>
+	  
+    <header class="jumbotron">
+		<h1> KEEG : L'informatique pour tou(te)s {# ?? #} </h1>
+		<p>
+			Découvrez un domaine fait aussi bien pour les garçons que pour les filles !
+		</p>
+		<p>
+			<a href="#"> Se connecter </a> | <a href="#"> S'inscrire </a>
+		</p>
+    </header>
+
+
+
+	{% block messages_flash %}
+	  {% for message in app.session.flashbag.get('accueil') %}
+		<div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  Message flash : {{ message }}
+		</div>
+	  {% endfor %}
+	{% endblock %}
+    
+
+	<div class="row">
+		<div id="content" class="col-md-12">
+			<h3>
+				<center>
+					KEEG Project : c'est quoi ?
+				</center>
+			</h3>
+			
+			<br />
+
+			<div class="container-fluid well">
+				<h4>
+					Un projet d'études
+				</h4>
+				<p>
+					Notre petit projet KEEG a vu le jour il y a un an à l'IUT Lyon 1, 
+					avec l'envie d'aider les lycéens à trouver leur voie, celle de l'informatique. 
+					Pour cela, nous sommes quatre étudiantes à avoir relevé le défi de développer un 
+					site web afin de vous informer sur la formation. 
+				</p>
+				
+				<br />
+				<h4>
+					Nos objectifs
+				</h4>
+				<p>
+					<ul>
+						<li> Casser les préjugés à propos de l'informatique </li>
+						<li> Montrer qu'il s'agit d'un domaine parfaitement accessible
+						aussi bien pour les garçons que pour les <strong> filles </strong></li>
+						<li> Pouvoir renseigner les lycéen(ne)s et étudiants à propos de l'informatique</li>
+						<li> Créer une communauté autour des étudiant(e)s en informatique, et futurs étudiant(e)s </li>
+					</ul>
+				</p>
+				
+				<br />
+				<h4>
+					Et après ?
+				</h4>
+				<p>
+					Design, nouvelles fonctionnalités, il y a encore beaucoup à faire sur ce projet !
+					Ainsi, nous espérons que l'équipe KEEG sera renouvellée avec une nouvelle génération
+					d'étudiant(e)s et que notre projet sera mis à terme.
+					<br />
+					Ensuite, c'est à la communauté de KEEG de faire vivre le projet ! ;)
+				</p>
+			</div>
+
+			<div class="container-fluid well">
+				<h4> <center> Membres du projet KEEG </center> </h4>
+				<br />
+				<div class="row">
+					<div class="col-lg-12">
+						<center>
+							<table class="espaceTable">
+								<tr>
+									<td> <img class="img-circle img-responsive" src="{{ asset('image/membres/melanie.jpg') }}" > </td>
+									<td> <img class="img-circle img-responsive" src="{{ asset('image/membres/ophelieE.jpg') }}" > </td>
+									<td> <img class="img-circle img-responsive" src="{{ asset('image/membres/karen.jpg') }}" > </td>
+									<td> <img class="img-circle img-responsive" src="{{ asset('image/membres/ophelieR.jpg') }}" > </td>
+								</tr>
+								<tr>
+									<td> <center> <em> Mélanie DUBREUIL </em> </center> </td>
+									<td> <center> <em> Ophélie EOUZAN </em> </center> </td>
+									<td> <center> <em> Karen OUBARHOU  </em> </center> </td>
+									<td> <center> <em> Ophélie RODRIGUES </em> </center> </td>
+								</tr>
+							</table>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<br />
+	
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 ">
+					<ul id="site" class="listeFooter">
+						<li> KEEG </li>
+						<li> <a href="{{ path('keeg_website_homepage') }}"> Accueil </a> </li>
+						<li> <a href="{{ path('keeg_website_iut') }}"> L'Informatique </a> </li>
+						<li> <a href="{{ path('keeg_website_activities') }}"> A vous de jouer !</a> </li>
+						<li> <a href="{{ path('keeg_website_forums') }}"> Forums </a> </li>
+					</ul>
+				</div>
+				<div class="col-lg-3">
+					<ul id="contacts" class="listeFooter">
+						<li> Contacts <li>
+						<li> <a href="http://iut.univ-lyon1.fr/"> IUT Claude Bernard Lyon 1</a> </li>
+						<li> <a href="{{ path('keeg_website_contact') }}"> Equipe de KEEGProject </a> </li>
+					</ul>
+				</div>
+				<div class="col-lg-3">
+					<ul id="voir_aussi" class="listeFooter">
+						<li> Voir aussi... <li>
+						<li> <a href="http://openclassrooms.com/"> Open Classroom </a> </li>
+					</ul>
+				</div>
+				<div class="col-lg-3">
+					<table>
+						<tr>
+							<td> <a href="https://www.facebook.com/keegiutlyon"> <img src="{{ asset('image/fb.png') }}"> </a> </td>
+							<td> <a href="#" > <img src="{{ asset('image/twitter.png') }}"> </a> </td>
+							<td> <a href="#"> <img src="{{ asset('image/rss.png') }}"></a> </td>
+							<td> <a href="#"> <img src="{{ asset('image/google.png') }}"></a> </td>
+						</tr>
+					</table>
+				</div>
+		</div>					
+    </footer>
+	
+	{# Intégration des JavaScript #}
+	{% block javascripts %}
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	{% endblock %}

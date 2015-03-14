@@ -1,13 +1,9 @@
-keeg_activity_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: KEEGActivityBundle:Default:index }
-
 keeg_activity_projects:
-    path:     /projects
+    path:     /projets
     defaults: { _controller: KEEGActivityBundle:Project:index }
 
 keeg_activity_projects_view:
-    path:     /projects/{id}
+    path:     /projets/{id}
     defaults: { _controller: KEEGActivityBundle:Project:view }
     requirements:
         id:   \d+

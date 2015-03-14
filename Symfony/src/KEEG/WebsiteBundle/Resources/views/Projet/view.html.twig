@@ -1,12 +1,12 @@
 {# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
 
-{% extends "KEEGActivityBundle::layout.html.twig" %}
+{% extends "KEEGWebsiteBundle:Projet:index.html.twig" %}
 
 {% block title %}
 	{{ project.titre }} - {{ parent() }}
 {% endblock %}
 
-{% block keegactivities_body %}
+{% block admin_body %}
 
 	<center>
 		<a href="{{project.url}}" title="Cliquez pour voir le projet" target="_blank" class="btn btn-default btn-block" >
@@ -24,7 +24,6 @@
 	<h2>{{ project.titre }}</h2>
 	<i>Par {{ project.auteur }}</i>
 
-
 	<blockquote>
 		{{ project.accroche }}
 	</blockquote>
@@ -33,12 +32,21 @@
 		{{ project.description }}
 	</div>
 
-
 	<p class="text-right">
-		<a href="{{ path('keeg_activity_projects') }}" class="btn btn-default">
+		<a href="{{ path('keeg_admin_projects') }}" class="btn btn-default">
 			<i class="glyphicon glyphicon-chevron-left"></i>
 				Revenir aux projets
 		</a>
+
+		<a href="{{ path('keeg_admin_projects_edit', {'id': project.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+		    	Modifier le projet
+		</a>
+		<a href="{{ path('keeg_admin_projects_delete', {'id': project.id}) }}" class="btn btn-danger">
+		    <i class="glyphicon glyphicon-trash"></i>
+		    	Supprimer le projet
+		</a>
+
 	</p>
 	
 {% endblock %}

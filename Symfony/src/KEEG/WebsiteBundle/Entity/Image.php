@@ -3,6 +3,7 @@
 namespace KEEG\WebsiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Image
@@ -34,7 +35,6 @@ class Image
      * @ORM\Column(name="alt", type="string", length=255)
      */
     private $alt;
-
 
     /**
      * Get id

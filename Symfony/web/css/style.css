@@ -9,3 +9,47 @@
 .textJustify{
 	text-align:justify;
 }
+
+.espaceTable{
+	border-spacing:20px 0px;
+	border-collapse:separate;
+}
+
+/* starter-template.css */
+
+body {
+  background-image: url("../image/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+/* advance -personalization */
+
+.container {
+	padding-top: 70px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #ffffff;
+}
+
+.img {
+	border-radius: 10px 10px;
+	padding-top: 20px;
+}
+
+/*
+blockquote {
+    background-color: #EEE;
+    margin: 20px 0px 15px 20px;
+    padding: 1px 15px;
+    color: #444;
+    border-radius: 10px;
+    font-size: 15px;
+}
+*/

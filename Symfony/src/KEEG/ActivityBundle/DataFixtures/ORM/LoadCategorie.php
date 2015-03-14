@@ -17,8 +17,16 @@ class LoadCategorie implements FixtureInterface
     $names = array(
       'Développement web',
       'Développement mobile',
+      'Développement logiciel',
+      'Java',
+      'PHP',
+      'HTML/CSS',
+      'Android',
+      'Jeu',
+      'C',
+      'C++',
+      'Unity3D',
       'Graphisme',
-      'Intégration',
       'Réseau'
     );
 
