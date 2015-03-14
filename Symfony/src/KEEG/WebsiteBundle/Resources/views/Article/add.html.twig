@@ -20,3 +20,10 @@
   	</p>
 
 {% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	    CKEDITOR.replace( 'keeg_articlebundle_article[contenu]' );
+	</script>
+{% endblock %}
