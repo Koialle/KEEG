@@ -4,3 +4,15 @@ keeg_article_view:
     defaults: { _controller: KEEGArticleBundle:Article:view }
     requirements:
         id:   \d+
+
+keeg_news_view:
+    path:     /news/{id}
+    defaults: { _controller: KEEGArticleBundle:News:view }
+    requirements:
+        id:   \d+
+
+keeg_temoignage_view:
+    path:     /temoignages/{id}
+    defaults: { _controller: KEEGArticleBundle:Temoignage:view }
+    requirements:
+        id:   \d+

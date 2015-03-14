@@ -20,9 +20,9 @@
       <div class="col-md-3">
         <p>
           <strong>{{ item.titre }}</strong><br />
-          {{ item.resume }}
+          {{ item.accroche }}
         </p>
-        <p><a class="btn btn-default" role="button" href="{{ path('keeg_article_view', {'id': item.id}) }}"> Voir détails &raquo; </a></p>
+        <p><a class="btn btn-default" role="button" href="{{ path('keeg_news_view', {'id': item.id}) }}"> Voir détails &raquo; </a></p>
         </p>
       </div>
 
@@ -30,6 +30,6 @@
 
 {% else %}
 
-    Aucun article n'a été trouvé.
+    Aucune actualité n'a été trouvée.
 
 {% endif %}

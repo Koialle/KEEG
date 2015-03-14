@@ -3,14 +3,14 @@
 {% extends "KEEGWebsiteBundle::admin.html.twig" %}
 
 {% block title %}
-	Ajouter un projet {{ parent() }}
+	Ajouter un témoignage {{ parent() }}
 {% endblock %}
 
 {% block body %}
 
-	<h3>Ajouter un projet</h3>
+	<h3>Ajouter un témoignage</h3>
 
-	{{ include("KEEGWebsiteBundle:Projet:form.html.twig") }}
+	{{ include("KEEGWebsiteBundle:Temoignage:form.html.twig") }}
 
 	<p class="text-right">
     	<a href="{{ path('keeg_website_admin') }}" class="btn btn-default">
@@ -24,6 +24,6 @@
 {% block javascripts %}
 	{{ parent() }}
 	<script>
-	    CKEDITOR.replace( 'keeg_activitybundle_projet[description]' );
+	    CKEDITOR.replace( 'keeg_articlebundle_temoignage[contenu]' );
 	</script>
 {% endblock %}

@@ -10,14 +10,6 @@
 
 	<h3>Projets d'étudiants</h3>
   
-  	{% if listeItems|length > 0 %}
-	  	{% for item in listeItems %}
-
-	  		{{ render(controller("KEEGActivityBundle:Project:menu", {'limit': 10})) }}
-
-		{% endfor %}
-	{% else %}
-		Cette section est vide pour l'instant.
-	{% endif %}
+	{{ render(controller("KEEGActivityBundle:Project:menu", {'limit': 4})) }}
  
 {% endblock %}

@@ -1,0 +1,46 @@
+{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{% extends "KEEGWebsiteBundle:News:index.html.twig" %}
+
+{% block title %}
+	{{ news.titre }} - {{ parent() }}
+{% endblock %}
+
+{% block admin_body %}
+
+	<h2>{{ news.titre }}</h2>
+	<i>{{ news.date|date('d/m/Y') }}</i>
+
+	{# On vérifie qu'une image est bien associée à la news #}
+	{% if news.image is not null %}
+		<center>
+			<img class="img" src="{{ news.image.url }}" alt="{{ news.image.alt }}" width="500px" height="300px" />
+		</center>
+	{% endif %}
+
+
+	<blockquote>
+		{{ news.accroche }}
+	</blockquote>
+
+	<div class="well">
+		{{ news.contenu|raw }}
+	</div>
+
+	<p class="text-right">
+		<a href="{{ path('keeg_admin_news') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+				Revenir aux actualités
+		</a>
+
+		<a href="{{ path('keeg_admin_news_edit', {'id': news.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+		    	Modifier l'actualité
+		</a>
+		<a href="{{ path('keeg_admin_news_delete', {'id': news.id}) }}" class="btn btn-danger">
+		    <i class="glyphicon glyphicon-trash"></i>
+		    	Supprimer l'actualité
+		</a>
+	</p>
+	
+{% endblock %}

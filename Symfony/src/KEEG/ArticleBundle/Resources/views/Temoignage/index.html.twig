@@ -3,13 +3,13 @@
 {% extends "KEEGArticleBundle::layout.html.twig" %}
 
 {% block title %}
-  Articles {{ parent() }}
+  Témoignages {{ parent() }}
 {% endblock %}
 
 {% block keegarticle_body %}
 
-  	<h3>Articles</h3>
+  	<h3>Témoignages</h3>
 
-	{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 10})) }}
+	{{ render(controller("KEEGArticleBundle:Temoignage:menu", {'limit': 10})) }}
   
 {% endblock %}

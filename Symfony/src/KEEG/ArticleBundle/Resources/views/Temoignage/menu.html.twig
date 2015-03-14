@@ -9,27 +9,27 @@
         <div class="thumbnail">
           <div class="thumbnail_wrapper">
             {% if item.image is not null %}
-              <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" width="150px" height="150px">
+      		    <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" width="150px" height="150px">
             {% else %}
               <img src="{{ asset('image/default.png') }}" width="150px" height="150px">
             {% endif %}
           </div>
         </div>
-      </div>
+  	  </div>
 
-      <div class="col-md-3">
-        <p>
-          <strong>{{ item.titre }}</strong><br />
-          {{ item.resume }}
+    	<div class="col-md-3">
+    		<p>
+    			<strong>{{ item.titre }}</strong><br />
+          {{ item.accroche }}
         </p>
-        <p><a class="btn btn-default" role="button" href="{{ path('keeg_article_view', {'id': item.id}) }}"> Voir détails &raquo; </a></p>
-        </p>
-      </div>
+    		<p><a class="btn btn-default" role="button" href="{{ path('keeg_temoignage_view', {'id': item.id}) }}"> Voir détails &raquo; </a></p>
+    		</p>
+    	</div>
 
   {% endfor %}
 
 {% else %}
 
-    Aucun article n'a été trouvé.
+    Aucun temoignage n'a été trouvé.
 
 {% endif %}

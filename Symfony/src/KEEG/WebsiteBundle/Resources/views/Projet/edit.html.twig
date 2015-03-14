@@ -22,3 +22,10 @@
 
 
 {% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	    CKEDITOR.replace( 'keeg_activitybundle_projet[description]' );
+	</script>
+{% endblock %}

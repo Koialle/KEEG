@@ -2,6 +2,7 @@
 
 namespace KEEG\ActivityBundle\Controller;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +24,10 @@ class ProjectController extends Controller
 
 		$project = $this->getDoctrine()->getManager()->getRepository('KEEGActivityBundle:Projet')->find($id);
 
+		if(null === $project){
+			throw new NotFoundHttpException("Le projet d'id ".$id." n'existe pas.");
+		}
+
 		return $this->render('KEEGActivityBundle:Projects:view.html.twig', array(
 			'project' => $project
 		));
@@ -31,7 +36,13 @@ class ProjectController extends Controller
 
 	public function menuAction($limit){
 
-        $listeItems = $this->getDoctrine()->getManager()->getRepository('KEEGActivityBundle:Projet')->findAll();
+        $listeItems = $this->getDoctrine()->getManager()
+        	->getRepository('KEEGActivityBundle:Projet')
+        	->findBy(
+                array(),
+                null,
+                $limit
+            );
 
 		return $this->render('KEEGActivityBundle:Projects:menu.html.twig', array(
 		  'listeItems' => $listeItems

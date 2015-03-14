@@ -73,19 +73,6 @@
 				</center>
 			</div>
 		</div>
-		<!-- <div class="row">
-			<div class="col-lg-12">  
-				<center>
-					<p>
-						Le projet KEEG c'est quoi ?
-						<br />
-						C'est tout simple ! Il s'agit simplement d'un projet de quatre étudiantes en 
-						IUT Informatique consistant à attirer plus de filles au sein de département,
-						mais aussi d'orienter tous les élèves du lycée dans les métiers de l'informatique !
-					</p>
-				</center>
-			</div>
-		</div> -->
 		
 		<hr />
 		<!-- Pour afficher deux news au hasard prises dans a BD -->
@@ -93,26 +80,7 @@
 			<h4>News <a href="{{ path('keeg_website_news') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
+					{{ render(controller("KEEGArticleBundle:News:menu", {'limit': 2} )) }}
 				</div>
 			</div>
 		</div>
@@ -123,7 +91,7 @@
 			<h4>Articles <a href="{{ path('keeg_website_articles') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 			<div class="col-md-12">
 				<div class="row">
-					{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 2, 'section': 'Articles'} )) }}
+					{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 2} )) }}
 				</div>
 			</div>
 		</div>
@@ -134,26 +102,7 @@
 			<h4>Témoignages <a href="{{ path('keeg_website_temoignages') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
+					{{ render(controller("KEEGArticleBundle:Temoignage:menu", {'limit': 2} )) }}
 				</div>
 			</div>
 		</div>
