@@ -7,6 +7,7 @@ namespace KEEG\WebsiteBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use KEEG\ArticleBundle\Form\TemoignageType;
+use KEEG\ArticleBundle\Form\TemoignageEditType;
 use KEEG\ArticleBundle\Entity\Temoignage;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -79,7 +80,7 @@ class TemoignageController extends Controller
         }
 
         // Création du formulaire en remplissant les champs avec les attributs de l'temoignage récupéré
-        $form = $this->get('form.factory')->create(new TemoignageType(), $temoignage);
+        $form = $this->get('form.factory')->create(new TemoignageEditType(), $temoignage);
 
         // Hydratation de $temoignage si la requète est un POST
         $form->handleRequest($request);

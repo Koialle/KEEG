@@ -14,7 +14,7 @@
 	{# On vérifie qu'une image est bien associée à l'article #}
 	{% if article.image is not null %}
 		<center>
-			<img class="img" src="{{ article.image.url }}" alt="{{ article.image.alt }}" width="500px" height="300px" />
+			<img class="img" src="{{ article.image.url }}" alt="{{ article.image.alt }}" />
 		</center>
 	{% endif %}
 

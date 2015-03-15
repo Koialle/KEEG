@@ -11,7 +11,7 @@
 		
 	<h3>Modifier un témoignage</h3>
 
-	{{ include("KEEGWebsiteBundle:Temoignage:form.html.twig") }}
+	{{ include("KEEGWebsiteBundle:Temoignage:editform.html.twig") }}
 
 	<p class="text-right">
 	    <a href="{{ path('keeg_admin_temoignages_view', {'id': temoignage.id}) }}" class="btn btn-default">
@@ -26,6 +26,6 @@
 {% block javascripts %}
 	{{ parent() }}
 	<script>
-	    CKEDITOR.replace( 'keeg_articlebundle_temoignage[contenu]' );
+	    CKEDITOR.replace( 'keeg_articlebundle_temoignage_edit[contenu]' );
 	</script>
 {% endblock %}

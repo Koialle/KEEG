@@ -14,7 +14,7 @@
 	{# On vérifie qu'une image est bien associée à l'news #}
 	{% if news.image is not null %}
 		<center>
-			<img class="img" src="{{ news.image.url }}" alt="{{ news.image.alt }}" width="500px" height="300px" />
+			<img class="img" src="{{ news.image.url }}" alt="{{ news.image.alt }}" />
 		</center>
 	{% endif %}
 

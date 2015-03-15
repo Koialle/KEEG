@@ -17,17 +17,16 @@ class ProjetType extends AbstractType
     {
         $builder
             ->add('titre',          'text')
-            ->add('url',            'url')
             ->add('auteur',         'text')
-            ->add('accroche',       'text')
+            ->add('accroche',       'textarea')
+            ->add('url',            'url')
             ->add('description',    'textarea')
-            ->add('image',          new ImageType())
             ->add('categories', 'entity', array(
                 'class'     => 'KEEGActivityBundle:Categorie',
                 'property'  => 'nom',
-                'multiple'  => true,
-                'expanded'  => true
+                'multiple'  => true
             ))
+            ->add('image',          new ImageType())
             ->add('enregistrer',    'submit')
         ;
     }

@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use KEEG\ArticleBundle\Entity\News;
 use KEEG\ArticleBundle\Form\NewsType;
+use KEEG\ArticleBundle\Form\NewsEditType;
 
 class NewsController extends Controller
 {
@@ -77,7 +78,7 @@ class NewsController extends Controller
         }
 
         // Création du formulaire en remplissant les champs avec les attributs de l'news récupéré
-        $form = $this->get('form.factory')->create(new NewsType(), $news);
+        $form = $this->get('form.factory')->create(new NewsEditType(), $news);
 
         // Hydratation de $news si la requète est un POST
         $form->handleRequest($request);

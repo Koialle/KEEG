@@ -16,8 +16,8 @@ class NewsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date',       'date')
             ->add('titre',      'text')
+            ->add('date',       'date')
             ->add('accroche',   'textarea')
             ->add('contenu',    'textarea')
             ->add('image',       new ImageType(), array('required' => false))
