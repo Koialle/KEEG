@@ -3,13 +3,17 @@
 namespace KEEG\WebsiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Image
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="KEEG\WebsiteBundle\Entity\ImageRepository")
+ * @UniqueEntity(fields="url", message="Cette image existe déjà.")
+ * 
  */
 class Image
 {
@@ -26,6 +30,8 @@ class Image
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255)
+     * @Assert\Url()
+     * @Assert\Length(max=255)
      */
     private $url;
 
@@ -33,6 +39,7 @@ class Image
      * @var string
      *
      * @ORM\Column(name="alt", type="string", length=255)
+     * @Assert\Length(max=255)
      */
     private $alt;
 

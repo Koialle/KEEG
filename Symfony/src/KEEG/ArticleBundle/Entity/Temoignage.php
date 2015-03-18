@@ -2,13 +2,17 @@
 
 namespace KEEG\ArticleBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Temoignage
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="KEEG\ArticleBundle\Entity\TemoignageRepository")
+ * @UniqueEntity(fields="titre", message="Ce titre existe déjà.")
+ * 
  */
 class Temoignage
 {
@@ -23,6 +27,7 @@ class Temoignage
 
     /**
      * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $image;
 
@@ -30,6 +35,7 @@ class Temoignage
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
 
@@ -37,6 +43,7 @@ class Temoignage
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\Length(min=10)
      */
     private $titre;
 
@@ -44,6 +51,7 @@ class Temoignage
      * @var string
      *
      * @ORM\Column(name="intervenant", type="string", length=255)
+     * @Assert\Length(min=2)
      */
     private $intervenant;
 
@@ -51,6 +59,7 @@ class Temoignage
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @Assert\NotBlank()
      */
     private $contenu;
 
@@ -58,6 +67,7 @@ class Temoignage
      * @var string
      *
      * @ORM\Column(name="accroche", type="string", length=255)
+     * @Assert\Length(min=20, max=120)
      */
     private $accroche;
 

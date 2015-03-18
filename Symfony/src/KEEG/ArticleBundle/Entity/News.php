@@ -2,13 +2,16 @@
 
 namespace KEEG\ArticleBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * News
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @UniqueEntity(fields="titre", message="Ce titre existe déjà.")
  */
 class News
 {
@@ -23,6 +26,7 @@ class News
 
     /**
      * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $image;
 
@@ -30,6 +34,7 @@ class News
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
 
@@ -37,6 +42,7 @@ class News
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\Length(min=10)
      */
     private $titre;
 
@@ -44,6 +50,7 @@ class News
      * @var string
      *
      * @ORM\Column(name="accroche", type="string", length=255)
+     * @Assert\Length(min=20, max=120)
      */
     private $accroche;
 
@@ -51,6 +58,7 @@ class News
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @Assert\NotBlank()
      */
     private $contenu;
 
