@@ -10,9 +10,9 @@
 {% block menu %}
 	<h3> A vous de jouer ! </h3>
 	<ul class="nav nav-pills nav-stacked">
-		<li><a href={{ path('keeg_activity_quizzInfo') }}> L'informatique : est-ce fait pour moi ?</a></li>
+		<li><a href={{ path('keeg_activity_questionnaires') }}> L'informatique : est-ce fait pour moi ?</a></li>
 		<li><a href="#"> Hello World ! </a></li>
-		<li><a href={{ path('keeg_activity_questionnaires') }}> Quizz </a></li>
+		<li><a href="#"> Quizz </a></li>
 		<li><a href="#"> Testez des projets d'étudiants! </a></li>
 	</ul>
 {% endblock %}
@@ -30,24 +30,32 @@
 				<div class="col-lg-12">
 					<div class="row">
 							<p>
-								L’informatique est-il un domaine fait pour toi ?
+								<b>L’informatique est-il un domaine fait pour toi ? (BADMKP)</b>
 								<br />
-								<a href={{ path('keeg_activity_quizzInfo') }}> Je fais le test </a>
+								Il est temps de découvrir si tu peux nous rejoindre
+								<br />
+								<a href={{ path('keeg_activity_quizzInfo') }} type="button" class="btn btn-default"> C'est parti ! </a>
 							</p>
 							<p>
-								Quelle formation d’informatique/cursus te convient le mieux ?
+								<b>Quelle formation d’informatique te convient le mieux ?</b>
 								<br />
-								<a href={{ path('keeg_activity_quizzCursus') }}> Je fais le test </a>
+								Plutôt licence, IUT ou ingé ?
+								<br />
+								<a href={{ path('keeg_activity_quizzCursus') }} type="button" class="btn btn-default"> C'est parti ! </a>
 							</p>
 							<p>
-								Quelles compétences as-tu qui pourraient être un plus pour faire un DUT Informatique ?
+								<b>Quelles compétences as-tu qui pourraient être un plus pour faire un DUT Informatique ?</b>
 								<br />
-								<a href={{ path('keeg_activity_quizzCompetences') }}> Je fais le test </a>
+								Je ne parle pas de savoir coder voyons ! Mais non, je parle de ces compétences que même toi tu es sensible d'avoir. Je vois que tu veux découvrir ces compétences... Alors vas-y ;)
+								<br />
+								<a href={{ path('keeg_activity_quizzCompetences') }} type="button" class="btn btn-default"> C'est parti ! </a>
 							</p>
 							<p>
-								Quel domaine d’informatique pourrait t’intéresser ?
+								<b>Quel domaine d’informatique pourrait t’intéresser ?</b>
 								<br />
-								<a href={{ path('keeg_activity_quizzDomaines') }}> Je fais le test </a>
+								Pour se projeter plus loin dans l'avenir. Faire des études c'est bien, mais trouver un métier qui te plait c'est mieux.
+								<br />
+								<a href={{ path('keeg_activity_quizzDomaines') }} type="button" class="btn btn-default"> C'est parti ! </a>
 							</p>
 					</div>
 				</div>
