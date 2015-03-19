@@ -1,0 +1,29 @@
+
+		
+		<div id="resultats_recherche"> 
+			{% include "KEEGArticleBundle:Article:notfound.html.twig" with {'article': article} %}
+		</div>	
+		
+	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+		<script  type="text/javascript">
+	
+		$("#form_recherche").submit(function(){ 
+
+			var motcle = $("#motcle").val();
+			var DATA = 'motcle=' + motcle;
+			$.ajax({
+				type: "POST",
+				url: "{{ path('keeg_article_search')}}",
+				data: DATA,
+				cache: false,
+				success: function(data){
+						$('#resultats_recherche').html(data);
+			
+				}
+			});    
+			return false;
+		});
+		</script>
+
+

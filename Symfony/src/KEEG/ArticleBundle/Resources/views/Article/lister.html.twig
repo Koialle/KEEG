@@ -1,0 +1,33 @@
+			<br>
+			<div class="loading">
+				<img src="{{ asset('image/loading.gif') }}">
+			</div>
+			<br>
+			<div id="resultats_recherche"> 
+				{% include "KEEGArticleBundle:Article:liste.html.twig" with {'article': article} %}
+			</div>
+			
+			
+		
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+		<script  type="text/javascript">
+		$(".loading").hide();
+		console.log("lol");
+		$("#form_recherche").submit(function(){ 
+			$(".loading").show();
+			var motcle = $("#motcle").val();
+			var DATA = 'motcle=' + motcle;
+			$.ajax({
+				type: "POST",
+				url: "{{ path('keeg_article_search')}}",
+				data: DATA,
+				cache: false,
+				success: function(data){
+						$('#resultats_recherche').html(data);
+						$(".loading").hide();
+				}
+			});    
+			return false;
+		});
+		</script>

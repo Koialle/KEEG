@@ -1,0 +1,13 @@
+<table>
+<br>
+<p> Résultats de votre recherche </p>
+
+  <ul>
+	{% for a in article %}
+
+			<li><a href="{{ path('keeg_article_view', {'id': a.id}) }}">{{ a.titre }}</a></li>
+		
+{% endfor %}
+</ul>
+
+</table>

@@ -7,7 +7,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController extends Controller
 {
@@ -51,31 +50,54 @@ class ArticleController extends Controller
 		
 	}
 	
-	public function addAction(Request $request){
-		if($request->isMethod('POST')){
-			$request->getSession()->getFlashBag()->add('accueil', 'Article bien ajouté');
-			return $this->redirect($this->generateUrl('keeg_website_homepage'));
+	public function searchAction()
+	{               
+		
+		$request = $this->container->get('request');
+		//$form = $this->container->get('form.factory')->create(new ArticleRechercherForm());	
+		
+		if($request->getMethod() == 'POST')
+		{
+		
+			
+			$motcle = '';
+			$motcle = $request->request->get('motcle');
+			
+			$em = $this->container->get('doctrine')->getEntityManager();
+
+			//if($motcle != '')
+			//{
+				
+				   $qb = $em->createQueryBuilder();
+
+				   $qb->select('a')
+					  ->from('KEEGArticleBundle:Article', 'a')
+					  ->where("a.titre LIKE :motcle OR a.contenu LIKE :motcle")
+					  ->orderBy('a.titre', 'ASC')
+					  ->setParameter('motcle', '%'.$motcle.'%');
+					  
+
+				   $query = $qb->getQuery();               
+				   $article = $query->getResult();
+				
+			if ($article == null) {
+				return $this->container->get('templating')->renderResponse('KEEGArticleBundle:Article:lister2.html.twig', array(
+				'article' => $article,
+				));
+			}
+			else {
+				/*return $this->container->get('templating')->renderResponse('KEEGArticleBundle:Article:lister.html.twig', array(
+				'article' => $article,
+				));*/
+				return $this->render('KEEGArticleBundle:Article:lister.html.twig', array(
+				'article' => $article,
+				));
+			
+			}
 		}
-		return $this->render('KEEGArticleBundle:Article:add.html.twig');
-	
+		else {
+			return $this->render('KEEGArticleBundle:Article:lister3.html.twig');
+		}
 	}
 	
-	public function editAction(Request $request) {
-		if($request->isMethod('POST')) {
-			$request->getSession()->getFlashBag()->add('accueil', 'Article modifié');
-			return $this->redirect($this->generateUrl('keeg_website_homepage'));
-		}
-		return $this->render('KEEGArticleBundle:Article:edit.html.twig');
-		
-	}
-	
-	public function deleteAction(Request $request) {
-		if($request->isMethod('POST')) {
-			$request->getSession()->getFlashBag()->add('accueil', 'Article supprimé');
-			return $this->redirect($this->generateUrl('keeg_website_homepage'));
-		}
-		return $this->render('KEEGArticleBundle:Article:delete.html.twig');
-		
-		
-	}
 }

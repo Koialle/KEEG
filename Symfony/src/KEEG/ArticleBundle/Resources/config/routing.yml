@@ -16,6 +16,10 @@ keeg_temoignage_view:
     requirements:
         id:   \d+
 
+keeg_article_search:
+    path:    /articles/search
+    defaults: {_controller: KEEGArticleBundle:Article:search}
+
     # Pages de présentation de l'Univers de l'informatique
 
 keeg_universe_iut:
