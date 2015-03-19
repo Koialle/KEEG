@@ -1,25 +1,35 @@
 {# src/KEEG/ArticleBundle/Resources/views/Article/menu.html.twig #}
 
-{# Ce template n'h�rite de personne, tout comme le template inclus avec {{ include() }}. #}
+{# Ce template n'hérite de personne, tout comme le template inclus avec {{ include() }}. #}
 
-<ul class="nav nav-pills nav-stacked">
+{% if listeItems|length > 0 %}
   {% for item in listeItems %}
 
-  {#
-    <li>
-      <a href="{{ path('keeg_article_view', {'id': item.id}) }}">
-        {{ item.titre }}
-      </a>
-    </li>
-#}
-    <div class="col-md-2">
-		<img src="{{ asset('image/default.png') }}">
-	</div>
-	<div class="col-md-3">
-		<p>
-			{{ item.titre }}<br />
-			<a href="{{ path('keeg_article_view', {'id': item.id}) }}"> Voir suite... </a>
-		</p>
-	</div>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="thumbnail_wrapper">
+            {% if item.image is not null %}
+              <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" width="150px" height="150px">
+            {% else %}
+              <img src="{{ asset('image/default.png') }}" width="150px" height="150px">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <p>
+          <strong>{{ item.titre }}</strong><br />
+          {{ item.resume }}
+        </p>
+        <p><a class="btn btn-default" role="button" href="{{ path('keeg_article_view', {'id': item.id}) }}"> Voir détails &raquo; </a></p>
+        </p>
+      </div>
+
   {% endfor %}
-</ul>
+
+{% else %}
+
+    Aucun article n'a été trouvé.
+
+{% endif %}

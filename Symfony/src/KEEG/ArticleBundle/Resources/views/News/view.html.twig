@@ -1,0 +1,36 @@
+{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{% extends "KEEGArticleBundle::layout.html.twig" %}
+
+{% block title %}
+	{{ news.titre }} - {{ parent() }}
+{% endblock %}
+
+{% block keegarticle_body %}
+
+	<h2>{{ news.titre }}</h2>
+	<i>{{ news.date|date('d/m/Y') }}</i>
+
+	{# On vérifie qu'une image est bien associée à l'news #}
+	{% if news.image is not null %}
+		<center>
+			<img class="img" src="{{ news.image.url }}" alt="{{ news.image.alt }}" />
+		</center>
+	{% endif %}
+
+	<blockquote>
+		{{ news.accroche }}
+	</blockquote>
+
+	<div class="well">
+		{{ news.contenu|raw }}
+	</div>
+
+	<p class="text-right">
+		<a href="{{ path('keeg_website_news') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+				Revenir aux news
+		</a>
+	</p>
+	
+{% endblock %}

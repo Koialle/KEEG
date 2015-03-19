@@ -1,0 +1,46 @@
+{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{% extends "KEEGWebsiteBundle:Article:index.html.twig" %}
+
+{% block title %}
+	{{ article.titre }} - {{ parent() }}
+{% endblock %}
+
+{% block admin_body %}
+
+	<h2>{{ article.titre }}</h2>
+	<i>Par {{ article.auteur }}, le {{ article.date|date('d/m/Y') }}</i>
+
+	{# On vérifie qu'une image est bien associée à l'article #}
+	{% if article.image is not null %}
+		<center>
+			<img class="img" src="{{ article.image.url }}" alt="{{ article.image.alt }}" />
+		</center>
+	{% endif %}
+
+
+	<blockquote>
+		{{ article.resume }}
+	</blockquote>
+
+	<div class="well">
+		{{ article.contenu|raw }}
+	</div>
+
+	<p class="text-right">
+		<a href="{{ path('keeg_admin_articles') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+				Revenir aux articles
+		</a>
+
+		<a href="{{ path('keeg_admin_articles_edit', {'id': article.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+		    	Modifier l'article
+		</a>
+		<a href="{{ path('keeg_admin_articles_delete', {'id': article.id}) }}" class="btn btn-danger">
+		    <i class="glyphicon glyphicon-trash"></i>
+		    	Supprimer l'article
+		</a>
+	</p>
+	
+{% endblock %}

@@ -23,11 +23,11 @@ keeg_activity_quizzDomaines:
     defaults: {_controller: KEEGActivityBundle:Activity:quizzDomaines }
 
 keeg_activity_projects:
-    path:     /projects
+    path:     /projets
     defaults: { _controller: KEEGActivityBundle:Project:index }
 
 keeg_activity_projects_view:
-    path:     /projects/{id}
+    path:     /projets/{id}
     defaults: { _controller: KEEGActivityBundle:Project:view }
     requirements:
         id:   \d+

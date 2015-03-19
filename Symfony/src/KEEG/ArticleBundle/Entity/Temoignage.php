@@ -2,15 +2,19 @@
 
 namespace KEEG\ArticleBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Article
+ * Temoignage
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="KEEG\ArticleBundle\Entity\ArticleRepository")
+ * @ORM\Entity(repositoryClass="KEEG\ArticleBundle\Entity\TemoignageRepository")
+ * @UniqueEntity(fields="titre", message="Ce titre existe déjà.")
+ * 
  */
-class Article
+class Temoignage
 {
     /**
      * @var integer
@@ -22,7 +26,8 @@ class Article
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $image;
 
@@ -30,6 +35,7 @@ class Article
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
 
@@ -37,30 +43,38 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\Length(min=10)
      */
     private $titre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="auteur", type="string", length=255)
+     * @ORM\Column(name="intervenant", type="string", length=255)
+     * @Assert\Length(min=2)
      */
-    private $auteur;
+    private $intervenant;
 
     /**
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @Assert\NotBlank()
      */
     private $contenu;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="resume", type="text")
+     * @ORM\Column(name="accroche", type="string", length=255)
+     * @Assert\Length(min=20, max=120)
      */
-    private $resume;
+    private $accroche;
 
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get id
@@ -76,7 +90,7 @@ class Article
      * Set date
      *
      * @param \DateTime $date
-     * @return Article
+     * @return Temoignage
      */
     public function setDate($date)
     {
@@ -99,7 +113,7 @@ class Article
      * Set titre
      *
      * @param string $titre
-     * @return Article
+     * @return Temoignage
      */
     public function setTitre($titre)
     {
@@ -119,33 +133,33 @@ class Article
     }
 
     /**
-     * Set auteur
+     * Set intervenant
      *
-     * @param string $auteur
-     * @return Article
+     * @param string $intervenant
+     * @return Temoignage
      */
-    public function setAuteur($auteur)
+    public function setIntervenant($intervenant)
     {
-        $this->auteur = $auteur;
+        $this->intervenant = $intervenant;
 
         return $this;
     }
 
     /**
-     * Get auteur
+     * Get intervenant
      *
      * @return string 
      */
-    public function getAuteur()
+    public function getIntervenant()
     {
-        return $this->auteur;
+        return $this->intervenant;
     }
 
     /**
      * Set contenu
      *
      * @param string $contenu
-     * @return Article
+     * @return Temoignage
      */
     public function setContenu($contenu)
     {
@@ -165,25 +179,48 @@ class Article
     }
 
     /**
-     * Set resume
+     * Set accroche
      *
-     * @param string $resume
-     * @return Article
+     * @param string $accroche
+     * @return Temoignage
      */
-    public function setResume($resume)
+    public function setAccroche($accroche)
     {
-        $this->resume = $resume;
+        $this->accroche = $accroche;
 
         return $this;
     }
 
     /**
-     * Get resume
+     * Get accroche
      *
      * @return string 
      */
-    public function getResume()
+    public function getAccroche()
     {
-        return $this->resume;
+        return $this->accroche;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \KEEG\WebsiteBundle\Entity\Image $image
+     * @return Temoignage
+     */
+    public function setImage(\KEEG\WebsiteBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \KEEG\WebsiteBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

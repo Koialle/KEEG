@@ -3,7 +3,7 @@
 {% extends "KEEGWebsiteBundle::admin.html.twig" %}
 
 {% block title %}
-  Accueil {{ parent() }}
+  Index {{ parent() }}
 {% endblock %}
 
 {% block messages_flash %}
@@ -14,22 +14,36 @@
     </div>
   {% endfor %}
 {% endblock %}
-    
-{% block menu %}
-	<h3>Index</h3>
-	<ul class="nav nav-pills nav-stacked">
-		<li><a href="#">News</a></li>
-		<li><a href="#">Articles</a></li>
-		<li><a href="#">Témoignages</a></li>
-		<li><a href="#">Projets</a></li>
-	</ul>
-{% endblock %}
 
-{% block body %}
+{% block admin_body %}
+
 	<h2>Panel d'administration</h2><hr>
+	
+	<a href="{{ path('keeg_admin_news_add') }}">
+		<button type="button" class="btn btn-default btn-lg">
+			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Nouvelle actualité
+		</button>
+	</a>
 
-	{% if section is same as("Projet") %}
-		{{ render(controller("KEEGActivityBundle:Project:add")) }}
+	<h3> Liste des actualités </h3>
+	
+	{% if listeItems|length > 0 %}
+		<ul>
+			{% for news in listeItems %}
+
+				<li>
+					<a href="{{ path('keeg_admin_news_view', {'id': news.id}) }}">
+						{{ news.titre }}
+					</a>
+				</li>
+				
+			{% endfor %}
+		</ul>
+
+	{% else %}
+
+		Aucune actualité n'a été trouvée.
+
 	{% endif %}
 
 

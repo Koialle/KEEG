@@ -1,0 +1,29 @@
+{# src/KEEG/ActivityBundle/Resources/views/Projects/add.html.twig #}
+
+{% extends "KEEGWebsiteBundle::admin.html.twig" %}
+
+{% block title %}
+	Ajouter un projet {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<h3>Ajouter un projet</h3>
+
+	{{ include("KEEGWebsiteBundle:Projet:form.html.twig") }}
+
+	<p class="text-right">
+    	<a href="{{ path('keeg_website_admin') }}" class="btn btn-default">
+      		<i class="glyphicon glyphicon-chevron-left"></i>
+      		Revenir à l'index
+    	</a>
+  	</p>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	    CKEDITOR.replace( 'keeg_activitybundle_projet[description]' );
+	</script>
+{% endblock %}

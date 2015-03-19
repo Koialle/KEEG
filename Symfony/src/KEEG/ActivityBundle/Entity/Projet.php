@@ -3,14 +3,17 @@
 namespace KEEG\ActivityBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Projet
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="KEEG\ActivityBundle\Entity\ProjetRepository")
+ * @UniqueEntity(fields="titre", message="Ce titre existe déjà.")
+ * 
  */
 class Projet
 {
@@ -25,7 +28,7 @@ class Projet
 
     /**
      * @ORM\OneToOne(targetEntity="KEEG\WebsiteBundle\Entity\Image", cascade={"persist", "remove"})
-     * @Assert\File
+     * 
      */
     private $image;
 
@@ -62,6 +65,13 @@ class Projet
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+
+    /**
+     * @var  string
+     *
+     * @ORM\Column(name="accroche", type="string", length=255)
+     */
+    private $accroche;
 
     /**
      * Get id
@@ -230,5 +240,28 @@ class Projet
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set accroche
+     *
+     * @param string $accroche
+     * @return Projet
+     */
+    public function setAccroche($accroche)
+    {
+        $this->accroche = $accroche;
+
+        return $this;
+    }
+
+    /**
+     * Get accroche
+     *
+     * @return string 
+     */
+    public function getAccroche()
+    {
+        return $this->accroche;
     }
 }

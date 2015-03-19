@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use KEEG\WebsiteBundle\Entity\Contact;
-
+use KEEG\WebsiteBundle\Entity\Image;
 
 class WebsiteController extends Controller
 {
@@ -22,10 +22,10 @@ class WebsiteController extends Controller
 		$contact = new Contact();
 		
 		$form = $this->get('form.factory')->createBuilder('form', $contact)
-		  	->add('title',	'text')
+		  	->add('title',		'text')
 		  	->add('content',	'textarea')
 		  	->add('name',		'text')
-		  	->add('mail', 	'email')
+		  	->add('mail', 		'email')
 		  	->add('envoyer',	'submit')
 		  	->getForm()
 		;
@@ -47,7 +47,8 @@ class WebsiteController extends Controller
 							'mail' => $form->get('mail')->getData()
 						)
 					)
-				);
+				)
+			;
 				
 			$this->get('mailer')->send($message);
 			

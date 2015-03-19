@@ -3,36 +3,13 @@
 {% extends "KEEGArticleBundle::layout.html.twig" %}
 
 {% block title %}
-  {{ section }} {{ parent() }}
+  Articles {{ parent() }}
 {% endblock %}
 
 {% block keegarticle_body %}
 
-  	<h3>{{ section }}</h3>
-  
-  	{% if listeItems|length > 0 %}
-	  	{% for item in listeItems %}
+  	<h3>Articles</h3>
 
-	  		{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 10, 'section': section})) }}
-
-	  		{#
-		  	<h4> {{ item.titre }} </h4>
-		  	<i> Par {{item.auteur}}, le {{item.date|date('d/m/Y')}}</i>
-
-		  	<div class="well">
-		  		{{ item.content }}
-		  	</div>
-		  	#}
-
-		{% endfor %}
-	{% else %}
-		Cette section est vide pour l'instant.
-	{% endif %}
-  
-	{% if section is same as('IT') %}
-		<center>
-		    <iframe src="http://prezi.com/embed/kss4xcn4d8fd/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=0&amp;autohide_ctrls=0#" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0" height="400" width="550"></iframe>
-		</center>
-	{% endif %}
+	{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 10})) }}
   
 {% endblock %}

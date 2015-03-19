@@ -2,21 +2,42 @@
 
 {# Ce template n'hérite de personne, tout comme le template inclus avec {{ include() }}. #}
 
-<ul class="nav nav-pills nav-stacked">
+{% if listeItems|length > 0 %}
 
-  {% for item in listeItems %}
+  <div class="row">
 
-    <div class="col-md-2">
-		  <a href="{{ item.url }}" title="Cliquez pour voir le projet" target="_blank">
-        <img src="{{ item.image }}" alt="{{item.titre}}" width="100px" height="120px" />
-      </a>
-	  </div>
-	  <div class="col-md-3">
-      <h4>{{ item.titre }}</h4>
-		  <p>Par {{ item.auteur }}</p>
-      <p>{{ item.contenu }}</p>
-			<a href="{{ path('keeg_activity_projects_view', {'id': item.id}) }}"> Voir suite... </a>
-	  </div>
-  {% endfor %}
+    {% for item in listeItems %}
+    
+      <div class="col-sm-6 col-md-4">
 
-</ul>
+        <div class="thumbnail">
+
+          <div class="thumbnail_wraper">
+            
+            <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" width="242px" height="150px">
+
+          </div>
+
+
+          <div class="caption">
+
+            <h3>{{ item.titre }}</h3>
+
+            <p>{{ item.accroche }}</p>
+            <p class="text-right"><a href="{{ path('keeg_activity_projects_view', {'id': item.id}) }}" class="btn btn-primary" role="button">Voir</a></p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+{% else %}
+
+  Aucun projet n'a été trouvé.
+
+{% endif %}

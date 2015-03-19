@@ -1,0 +1,46 @@
+{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{% extends "KEEGWebsiteBundle:Temoignage:index.html.twig" %}
+
+{% block title %}
+	{{ temoignage.titre }} - {{ parent() }}
+{% endblock %}
+
+{% block admin_body %}
+
+	<h2>{{ temoignage.titre }}</h2>
+	<i>{{ temoignage.intervenant }}, le {{ temoignage.date|date('d/m/Y') }}</i>
+
+	{# On vérifie qu'une image est bien associée à l'temoignage #}
+	{% if temoignage.image is not null %}
+		<center>
+			<img class="img" src="{{ temoignage.image.url }}" alt="{{ temoignage.image.alt }}" />
+		</center>
+	{% endif %}
+
+
+	<blockquote>
+		{{ temoignage.accroche }}
+	</blockquote>
+
+	<div class="well">
+		{{ temoignage.contenu|raw }}
+	</div>
+
+	<p class="text-right">
+		<a href="{{ path('keeg_admin_temoignages') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+				Revenir aux témoignages
+		</a>
+
+		<a href="{{ path('keeg_admin_temoignages_edit', {'id': temoignage.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+		    	Modifier le témoignage
+		</a>
+		<a href="{{ path('keeg_admin_temoignages_delete', {'id': temoignage.id}) }}" class="btn btn-danger">
+		    <i class="glyphicon glyphicon-trash"></i>
+		    	Supprimer le témoignage
+		</a>
+	</p>
+	
+{% endblock %}

@@ -1,0 +1,15 @@
+{# src/KEEG/ArticleBundle/Resources/views/Default/index.html.twig #}
+
+{% extends "KEEGArticleBundle::layout.html.twig" %}
+
+{% block title %}
+  Témoignages {{ parent() }}
+{% endblock %}
+
+{% block keegarticle_body %}
+
+  	<h3>Témoignages</h3>
+
+	{{ render(controller("KEEGArticleBundle:Temoignage:menu", {'limit': 10})) }}
+  
+{% endblock %}
