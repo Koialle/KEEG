@@ -10,11 +10,33 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UniverseController extends Controller
 {
-	public function indexAction(Request $request){
+	public function indexAction(){
 
-        $session = $request->getSession();
+        $content = $this->get('templating')->render('KEEGArticleBundle:Universe:index.html.twig');
+		return new Response($content);
+	}
 
-        $content = $this->get('templating')->render('KEEGArticleBundle:IUTInfo:index.html.twig');
+	public function iutAction(){
+
+        $content = $this->get('templating')->render('KEEGArticleBundle:Universe:iut.html.twig');
+		return new Response($content);
+	}
+
+	public function metierAction(){
+
+        $content = $this->get('templating')->render('KEEGArticleBundle:Universe:debouches.html.twig');
+		return new Response($content);
+	}
+
+	public function formationAction(){
+
+        $content = $this->get('templating')->render('KEEGArticleBundle:Universe:formations.html.twig');
+		return new Response($content);
+	}
+
+	public function loisirAction(){
+
+        $content = $this->get('templating')->render('KEEGArticleBundle:Universe:loisirs.html.twig');
 		return new Response($content);
 	}
 

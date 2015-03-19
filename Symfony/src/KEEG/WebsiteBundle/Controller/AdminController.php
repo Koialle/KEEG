@@ -13,15 +13,4 @@ class AdminController extends Controller
         $content = $this->get('templating')->render('KEEGWebsiteBundle:Admin:index.html.twig');
 		return new Response($content);
     }
-
-    public function addAction($section)
-    {
-    	if($section === 'Projet'){
-    		return $this->render('KEEGWebsiteBundle:Projet:add.html.twig', array(
-    			'section'	=>	$section
-    		));
-    	}
-
-    	return $this->render('KEEGWebsiteBundle:Admin:index.html.twig');
-    }
 }

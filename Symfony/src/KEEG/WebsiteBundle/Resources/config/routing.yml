@@ -7,7 +7,7 @@ keeg_website_homepage:
     defaults: { _controller: KEEGWebsiteBundle:Website:index }
 
 keeg_website_iut:
-    path:     /IUT
+    path:     /informatique
     defaults: { _controller: KEEGArticleBundle:Universe:index }
 
 keeg_website_activities:

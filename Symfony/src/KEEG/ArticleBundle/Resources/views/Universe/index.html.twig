@@ -3,7 +3,7 @@
 {% extends "KEEGArticleBundle::layout.html.twig" %}
 
 {% block title %}
-  L'univers de l'informatique {{ parent() }}
+  L'Univers de l'Informatique {{ parent() }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -30,12 +30,12 @@
 
 
 {% block menu %}
-	<h3>L'univers de l'informatique </h3>
+	<h3>L'Univers de l'Informatique </h3>
 	<ul class="nav nav-pills nav-stacked">
-		<li><a href="#">IUT Informatique de Lyon1</a></li>
-		<li><a href="#">Les métiers de l'informatique</a></li>
-		<li><a href="#">Les formations</a></li>
-		<li><a href="#">Loisirs liés à l'informatique</a></li>
+		<li><a href="{{ path('keeg_universe_iut') }}">IUT Informatique de Lyon1</a></li>
+		<li><a href="{{ path('keeg_universe_debouches') }}">Les métiers de l'informatique</a></li>
+		<li><a href="{{ path('keeg_universe_formations') }}">Les formations</a></li>
+		<li><a href="{{ path('keeg_universe_loisirs') }}">Loisirs liés à l'informatique</a></li>
 	</ul>
 {% endblock %}
 
@@ -148,7 +148,7 @@
 			      <div class="item">
 			        <img src="{{ asset('image/info/game.jpg') }}" alt="game" width="550" height="400">
 			        <div class="carousel-caption">
-			          <h3>Gaming</h3>
+			          <h3>Jeux vidéo</h3>
 			        </div>
 			      </div>
 			  
@@ -166,23 +166,128 @@
 			  </div>
 			</div>
 
-			<div class="col-lg-12">
+			<div class="col-lg-12 text-justify">
 				<p>&nbsp;</p>
 
 				<h3>Qu&#39;est-ce que l&#39;informatique ?</h3>
 
 				<blockquote>
-					<p><small>Wikip&eacute;dia</small></p>
+					<p><small>Wikipédia</small></p>
 
-					<p>L&#39;<strong>informatique</strong> est un domaine d&#39;activit&eacute; <a href="http://fr.wikipedia.org/wiki/Sciences_exactes">scientifique</a>, <a href="http://fr.wikipedia.org/wiki/Technique">technique</a> et <a href="http://fr.wikipedia.org/wiki/Industrie">industriel</a> concernant le <a href="http://fr.wikipedia.org/wiki/Syst%C3%A8me_de_traitement_de_l%27information">traitement automatique de l&#39;information</a> via l&rsquo;ex&eacute;cution de <a href="http://fr.wikipedia.org/wiki/Programme_informatique">programmes informatiques</a> par des <a href="http://fr.wikipedia.org/wiki/Machine">machines</a>&nbsp;: des <a href="http://fr.wikipedia.org/wiki/Syst%C3%A8me_embarqu%C3%A9">syst&egrave;mes embarqu&eacute;s</a>, des <a href="http://fr.wikipedia.org/wiki/Ordinateur">ordinateurs</a>, des <a href="http://fr.wikipedia.org/wiki/Robot">robots</a>, des <a href="http://fr.wikipedia.org/wiki/Automate">automates</a>,&nbsp;etc.</p>
+					<p>L&#39;<strong>informatique</strong> est un domaine d&#39;activité <a href="http://fr.wikipedia.org/wiki/Sciences_exactes">scientifique</a>, <a href="http://fr.wikipedia.org/wiki/Technique">technique</a> et <a href="http://fr.wikipedia.org/wiki/Industrie">industriel</a> concernant le <a href="http://fr.wikipedia.org/wiki/Syst%C3%A8me_de_traitement_de_l%27information">traitement automatique de l&#39;information</a> via l&rsquo;exécution de <a href="http://fr.wikipedia.org/wiki/Programme_informatique">programmes informatiques</a> par des <a href="http://fr.wikipedia.org/wiki/Machine">machines</a>&nbsp;: des <a href="http://fr.wikipedia.org/wiki/Syst%C3%A8me_embarqu%C3%A9">syst&egrave;mes embarqués</a>, des <a href="http://fr.wikipedia.org/wiki/Ordinateur">ordinateurs</a>, des <a href="http://fr.wikipedia.org/wiki/Robot">robots</a>, des <a href="http://fr.wikipedia.org/wiki/Automate">automates</a>,&nbsp;etc.</p>
 
 				</blockquote>
 
-				<p>Vous avez tout compris ? Vous &ecirc;tes chez <em>Free</em> !!</p>
+				
+				<p><big>Vous avez tout compris ? Vous &ecirc;tes chez <em>Free</em> !! xD</big></p>
 
-				<p>Non, on vous charries. Et &ccedil;a ne s&#39;arr&ecirc;tera pas l&agrave;. Car ici tout le monde est comme une grande famille et on est tous l&agrave; pour se soutenir mutuellement, et c&#39;est pourquoi nous sommes ici pour vous pr&eacute;senter ce qu&#39;est l&#39;informatique en d&eacute;codant (eh oui d&egrave;s maintenant !) ce que signifie la d&eacute;finition de Wikip&eacute;dia.</p>
+				<p><big>Un peu compliquée et pas belle la définition de Wikipédia, n&#39;est-ce pas ? Certes elle n&#39;est pas fausse, mais elle est cependant tr&egrave;s incompl&egrave;te.</big></p>
+
+				<p><big>Alors l&#39;informatique, qu&#39;est-ce que c&#39;est ?</big></p>
+
+				<hr />
+
+				<h3>Qui se sert de l'informatique ? </h3>
+
+				<br /><p><big> L'informatique aujourd'hui est partout et tout le monde s'en sert. Travailler dans ce domaine signifie donc être au service d'une grande communauté réunie sur la toile. </big></p>
+				<center><p><img src="http://lepetitkopat.fr/wp-content/uploads/metiers-informatique.png" width="500" /></p></center>
+
+
+				<hr />
+
+				<h3> Notre point de vue </h3>
+
+				<br /><p><big>Pour nous l'info c'est :</big></p>
+
+
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/possibilite.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/communication.jpg') }}" alt="communication" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/technologie.jpeg') }}" alt="technologie" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/mixite.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/futur.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/argent.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/wtf.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/chat.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/art.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/musique.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/info/game.jpg') }}" alt="possibilite" width="185" height="135">
+					</div>
+					<div class="col-lg-3">
+						<img src="{{ asset('image/k3d.png') }}" alt="possibilite" width="185" height="135">
+					</div>
+				</div>
+{#}
+
+				<ul>
+					<li><big>d&#39;innombrables possibilités,</big></li>
+					<li><big>des outils de communication,</big></li>
+					<li><big>de la technologie,</big></li>
+					<li><big>de l&#39;amour,</big></li>
+					<li><big>du WTF,</big></li>
+					<li><big>des chats :3,</big></li>
+					<li><big>de l&#39;art,</big></li>
+					<li><big>de la musique,</big></li>
+					<li><big>du gaming...</big></li>
+				</ul>
+#}
+				<br /><p><big>De plus on peut caractériser ce domaine par :</big></p>
+
+				<ul>
+					<li><big>de la mixité,</big></li>
+					<li><big>de l'avenir,</big></li>
+					<li><big>et de l'ARGENT !</big></li>
+				</ul>
+
+				<br /><p><big>En effet, aujourd'hui l'informatique est un domaine où <strong>la demande est forte</strong>, étant donné son omniprésence depuis le XXIième siècle dans tous les autres domaines du quotidien : médecine, économie, armée, planification... C'est également la raison pour laquelle <strong>le salaire est en moyenne plus évelé</strong> qu'ailleurs. </big></p>
+
+				<hr />
+
+				<h3> Mindmapping </h3>
+
+				<br /><p> Voici un mindmapping de ce que vous allez trouver en naviguant sur cette section du site. N'hésitez pas à en faire le tour ! </p>
+
+				<a href="{{ asset('image/info-mindmapping.png') }}" title="Cliquez pour agrandir"><img src="{{ asset('image/info-mindmapping.png') }}" alt="mindmapping" height="500" width="750" /></a>
+
+				<hr />
+
+				<h3> Découvre ton KEEG profil ! </h3>
+
+				<br /><p> Un autre moyen de découvrir si l'informatique te correspond vraiment, c'est de passer <b>"The Big Affinity Test That Determines My KEEG Profil : <em> The BADMKP ! </em>" </b></p>
+				<p> On plaisante, on a toujours pas réussi à lui donner de nom. </p>
+
+				<a href="" type="button" class="btn btn-primary btn-lg btn-block"> Faire le BADMKP ! </a>
+
+
 
 			</div>
+
+			
 
 			{#}
 
@@ -217,12 +322,10 @@
 				</div>
 			</div>
 
-			<center>
-			    <iframe src="http://prezi.com/embed/kss4xcn4d8fd/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=0&amp;autohide_ctrls=0#" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0" height="400" width="550"></iframe>
-			</center>
+			
 
 			#}
-			
+
 		</div>
 	</div>
  
