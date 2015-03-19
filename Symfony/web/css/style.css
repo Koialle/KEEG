@@ -2,18 +2,23 @@
 	list-style-type:none;
 }
 
+.espaceTable{
+	border-spacing:20px 0px;
+	border-collapse:separate;
+}
+
+/*
 .fixe{
 	position:fixed;
 }
 
 .textJustify{
 	text-align:justify;
-}
+}*/
 
-.espaceTable{
-	border-spacing:20px 0px;
-	border-collapse:separate;
-}
+
+
+
 
 /* starter-template.css */
 
