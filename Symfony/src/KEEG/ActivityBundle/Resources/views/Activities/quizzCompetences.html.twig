@@ -29,6 +29,22 @@
 				</h4>
 				<div class="col-lg-12">
 					<div class="row">
+						<p id="question"></p>
+
+							
+							<INPUT type= "radio" id="rep1" name="reponse" value=""><span id="reponse1"></span>
+							<br>
+
+							<INPUT type= "radio" id="rep2" name="reponse" value=""><span id="reponse2"></span>
+							<br>
+
+							<INPUT type= "radio" id="rep3" name="reponse" value=""><span id="reponse3"></span>
+							<br>
+
+							<INPUT type= "radio" id="rep4" name="reponse" value=""><span id="reponse4"></span>
+							<br>
+
+						<INPUT id="bt_next" type="button" value="Question suivante">
 
 					</div>
 				</div>
@@ -36,4 +52,7 @@
 		</div>
 	</div>
  
+{% endblock %}
+{% block javascripts %}
+	<script src="{{ asset('js/questionnaireCompetences.js') }}"></script>
 {% endblock %}
