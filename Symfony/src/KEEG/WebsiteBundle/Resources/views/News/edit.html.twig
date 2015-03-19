@@ -1,0 +1,31 @@
+{# src/KEEG/ActivityBundle/Resources/views/Projects/add.html.twig #}
+
+{% extends "KEEGWebsiteBundle::admin.html.twig" %}
+
+{% block title %}
+	Modifier une actualité {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+		
+	<h3>Modifier une actualité</h3>
+
+	{{ include("KEEGWebsiteBundle:News:editform.html.twig") }}
+
+	<p class="text-right">
+	    <a href="{{ path('keeg_admin_news_view', {'id': news.id}) }}" class="btn btn-default">
+      		<i class="glyphicon glyphicon-chevron-left"></i>
+      		Revenir à l'actualité
+    	</a>
+  	</p>
+
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	    CKEDITOR.replace( 'keeg_articlebundle_news_edit[contenu]' );
+	</script>
+{% endblock %}

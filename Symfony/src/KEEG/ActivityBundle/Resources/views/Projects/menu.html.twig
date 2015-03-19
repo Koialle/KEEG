@@ -1,20 +1,43 @@
 {# src/KEEG/ArticleBundle/Resources/views/Article/menu.html.twig #}
 
 {# Ce template n'hérite de personne, tout comme le template inclus avec {{ include() }}. #}
-<div class="row">
-  {% for item in listeItems %}
-  
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" width="242px" height="200px">
-        <div class="caption">
-          <h3>{{ item.titre }}</h3>
-          <p>{{ item.accroche }}</p>
-          <p class="text-right"><a href="{{ path('keeg_activity_projects_view', {'id': item.id}) }}" class="btn btn-primary" role="button">Voir</a></p>
+
+{% if listeItems|length > 0 %}
+
+  <div class="row">
+
+    {% for item in listeItems %}
+    
+      <div class="col-sm-6 col-md-4">
+
+        <div class="thumbnail">
+
+          <div class="thumbnail_wraper">
+            
+            <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" width="242px" height="150px">
+
+          </div>
+
+
+          <div class="caption">
+
+            <h3>{{ item.titre }}</h3>
+
+            <p>{{ item.accroche }}</p>
+            <p class="text-right"><a href="{{ path('keeg_activity_projects_view', {'id': item.id}) }}" class="btn btn-primary" role="button">Voir</a></p>
+
+          </div>
+
         </div>
+
       </div>
-    </div>
-  {% else %}
-    Il n'y a pas (encore!) de projets.
-  {% endfor %}
-</div>
+
+    {% endfor %}
+
+  </div>
+
+{% else %}
+
+  Aucun projet n'a été trouvé.
+
+{% endif %}

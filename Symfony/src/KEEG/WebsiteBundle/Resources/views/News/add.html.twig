@@ -1,0 +1,29 @@
+{# src/KEEG/ActivityBundle/Resources/views/Projects/add.html.twig #}
+
+{% extends "KEEGWebsiteBundle::admin.html.twig" %}
+
+{% block title %}
+	Ajouter une actualité {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<h3>Ajouter une actualité</h3>
+
+	{{ include("KEEGWebsiteBundle:News:form.html.twig") }}
+
+	<p class="text-right">
+    	<a href="{{ path('keeg_website_admin') }}" class="btn btn-default">
+      		<i class="glyphicon glyphicon-chevron-left"></i>
+      		Revenir à l'index
+    	</a>
+  	</p>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	    CKEDITOR.replace( 'keeg_articlebundle_news[contenu]' );
+	</script>
+{% endblock %}

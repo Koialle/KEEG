@@ -4,14 +4,32 @@ keeg_article_view:
     requirements:
         id:   \d+
 
-keeg_article_add:
-    path:    /articles/add
-    defaults: { _controller: KEEGArticleBundle:Article:add }
+keeg_news_view:
+    path:     /news/{id}
+    defaults: { _controller: KEEGArticleBundle:News:view }
+    requirements:
+        id:   \d+
 
-keeg_article_edit:
-    path:    /articles/edit
-    defaults: {_controller: KEEGArticleBundle:Article:edit }
+keeg_temoignage_view:
+    path:     /temoignages/{id}
+    defaults: { _controller: KEEGArticleBundle:Temoignage:view }
+    requirements:
+        id:   \d+
 
-keeg_article_delete:
-    path:    /articles/delete
-    defaults: {_controller: KEEGArticleBundle:Article:delete}
+    # Pages de présentation de l'Univers de l'informatique
+
+keeg_universe_iut:
+    path:     /IUT_Claude_Bernard_Lyon_1
+    defaults: { _controller: KEEGArticleBundle:Universe:iut }
+
+keeg_universe_debouches:
+    path:     /metiers
+    defaults: { _controller: KEEGArticleBundle:Universe:metier }
+
+keeg_universe_formations:
+    path:     /formations
+    defaults: { _controller: KEEGArticleBundle:Universe:formation }
+
+keeg_universe_loisirs:
+    path:     /loisirs
+    defaults: { _controller: KEEGArticleBundle:Universe:loisir }

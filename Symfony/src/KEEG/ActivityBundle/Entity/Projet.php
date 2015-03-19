@@ -3,13 +3,17 @@
 namespace KEEG\ActivityBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Projet
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="KEEG\ActivityBundle\Entity\ProjetRepository")
+ * @UniqueEntity(fields="titre", message="Ce titre existe déjà.")
+ * 
  */
 class Projet
 {

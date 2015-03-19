@@ -30,12 +30,18 @@
 
   	<h3> Bienvenue sur KEEG : L'info pour tous et toutes ! </h3>
 
+  	<br />
 	<div class="container-fluid well">
 		<div class="col-lg-12">
 			<div class="row">
 				<div class="col-lg-12">
 					<center>
 						<div id="carousel" class="carousel slide">
+							<ol class="carousel-indicators">
+							    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+							    <li data-target="#carousel" data-slide-to="1"></li>
+								<li data-target="#carousel" data-slide-to="2"></li>
+							</ol>
 							<div class="carousel-inner">
 								<div class="item active"> <img src="{{ asset('image/chat2.jpg') }}"></div>
 								<div class="item"> <img src="{{ asset('image/sonic.png') }}"> </div>
@@ -46,73 +52,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-12">  
-				<center>
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-success" id="first">
-							<input type="radio" name="options"><span class="glyphicon glyphicon-fast-backward"></span>
-						</label>
-						<label class="btn btn-success" id="previous">
-							<input type="radio" name="options"><span class="glyphicon glyphicon-step-backward"></span>
-						</label>
-						<label class="btn btn-success" id="pause">
-							<input type="radio" name="options"><span class="glyphicon glyphicon-pause"></span>
-						</label>
-						<label class="btn btn-success active" id="play">
-							<input type="radio" name="options"><span class="glyphicon glyphicon-play"></span>
-						</label>
-						<label class="btn btn-success" id="next">
-							<input type="radio" name="options"><span class="glyphicon glyphicon-step-forward"></span>
-						</label>
-						<label class="btn btn-success" id="last">
-							<input type="radio" name="options"><span class="glyphicon glyphicon-fast-forward"></span>
-						</label>
-					</div>
-					<p><span class="label label-info"></span></p>
-				</center>
-			</div>
-		</div>
-		<!-- <div class="row">
-			<div class="col-lg-12">  
-				<center>
-					<p>
-						Le projet KEEG c'est quoi ?
-						<br />
-						C'est tout simple ! Il s'agit simplement d'un projet de quatre étudiantes en 
-						IUT Informatique consistant à attirer plus de filles au sein de département,
-						mais aussi d'orienter tous les élèves du lycée dans les métiers de l'informatique !
-					</p>
-				</center>
-			</div>
-		</div> -->
+
+		
 		
 		<hr />
+
 		<!-- Pour afficher deux news au hasard prises dans a BD -->
 		<div class="row">
 			<h4>News <a href="{{ path('keeg_website_news') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
+					{{ render(controller("KEEGArticleBundle:News:menu", {'limit': 2} )) }}
 				</div>
 			</div>
 		</div>
@@ -123,7 +73,7 @@
 			<h4>Articles <a href="{{ path('keeg_website_articles') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 			<div class="col-md-12">
 				<div class="row">
-					{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 2, 'section': 'Articles'} )) }}
+					{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 2} )) }}
 				</div>
 			</div>
 		</div>
@@ -134,26 +84,7 @@
 			<h4>Témoignages <a href="{{ path('keeg_website_temoignages') }}"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
-					<div class="col-md-2">
-						<img src="{{ asset('image/default.png') }}">
-					</div>
-					<div class="col-md-3">
-						<p>
-						Texte de description.
-						<br />
-						<a href="#"> Voir suite... </a>
-					</p>
-					</div>
+					{{ render(controller("KEEGArticleBundle:Temoignage:menu", {'limit': 2} )) }}
 				</div>
 			</div>
 		</div>

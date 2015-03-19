@@ -11,7 +11,7 @@
 		
 	<h3>Modifier un article</h3>
 
-	{{ include("KEEGWebsiteBundle:Article:form.html.twig") }}
+	{{ include("KEEGWebsiteBundle:Article:editform.html.twig") }}
 
 	<p class="text-right">
 	    <a href="{{ path('keeg_admin_articles_view', {'id': article.id}) }}" class="btn btn-default">
@@ -21,4 +21,11 @@
   	</p>
 
 
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	    CKEDITOR.replace( 'keeg_articlebundle_article_edit[contenu]' );
+	</script>
 {% endblock %}

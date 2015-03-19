@@ -1,5 +1,166 @@
-{# src/KEEG/ActivityBundle/Resources/views/Projects/form.html.twig #}
+{# src/KEEG/WebsiteBundle/Resources/views/Projet/form.html.twig #}
 
 <div class="well">
-  {{ form(form) }}
+  {{ form_start(form, {'attr': { 'class': 'form-horizontal'}}) }}
+
+	{# Les erreurs générales du formulaire #}
+  {{ form_errors(form) }}
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.titre, "Titre du projet", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.titre) }}
+
+	<div class="col-sm-10">
+		
+		{# Génération de l'input #}
+		{{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+  </div>
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.auteur, "Auteur du projet", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.auteur) }}
+
+	<div class="col-sm-10">
+		
+		{# Génération de l'input #}
+		{{ form_widget(form.auteur, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+  </div>
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.accroche, "Phrase d'accroche", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.accroche) }}
+
+	<div class="col-sm-10">
+		
+		{# Génération de l'input #}
+		{{ form_widget(form.accroche, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+  </div>
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.url, "Adresse du projet", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.url) }}
+
+	<div class="col-sm-10">
+		
+	    <div class="input-group">
+
+			{# Génération de l'input #}
+	      	<div class="input-group-addon">http://</div>
+			{{ form_widget(form.url, {'attr': {'class': 'form-control'}}) }}
+
+	    </div>
+	</div>
+
+  </div>
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.categories, "Catégories", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.categories) }}
+
+	<div class="col-sm-10">
+
+		{# Génération de l'input #}
+		{{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+  </div>
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.description, "Description du projet", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.description) }}
+
+	<div class="col-sm-10">
+		
+		{# Génération de l'input #}
+		{{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+  </div>
+
+  <div class="form-group">
+
+  	<hr />
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.image, "Image", {'label_attr': {'class': 'col-sm-12 text-center text-uppercase'}}) }}
+
+  </div>
+  
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.image.url, "Adresse de l'image", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.image.url) }}
+
+	<div class="col-sm-10">
+		
+		<div class="input-group">
+
+			{# Génération de l'input #}
+	      	<div class="input-group-addon">http://</div>
+			{{ form_widget(form.image.url, {'attr': {'class': 'form-control'}}) }}
+			
+	    </div>
+	</div>
+
+  </div>
+
+  <div class="form-group">
+  	
+  	{# Génération du label. #}
+  	{{ form_label(form.image.alt, "Nom de l'image", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+	{# Affichage des erreurs pour ce champ précis #}
+  	{{ form_errors(form.image.alt) }}
+
+	<div class="col-sm-10">
+		
+		{# Génération de l'input #}
+		{{ form_widget(form.image.alt, {'attr': {'class': 'form-control'}}) }}
+	</div>
+
+  </div>
+
+
+
+
+  {{ form_widget(form.enregistrer, {'attr': {'class': 'btn btn-primary'}}) }}
+
+  {{ form_rest(form) }}
+  {{ form_end(form) }}
 </div>
+
+

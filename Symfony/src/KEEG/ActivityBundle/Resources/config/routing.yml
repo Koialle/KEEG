@@ -1,3 +1,27 @@
+keeg_activity_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: KEEGActivityBundle:Default:index }
+
+keeg_activity_questionnaires:
+    path:    /activities/questionnaires
+    defaults: { _controller: KEEGActivityBundle:Activity:questionnaires }
+
+keeg_activity_quizzInfo:
+    path:    /activities/quizzInfo
+    defaults: {_controller: KEEGActivityBundle:Activity:quizzInfo }
+
+keeg_activity_quizzCursus:
+    path:    /activities/quizzCursus
+    defaults: {_controller: KEEGActivityBundle:Activity:quizzCursus }
+
+keeg_activity_quizzCompetences:
+    path:    /activities/quizzCompetences
+    defaults: {_controller: KEEGActivityBundle:Activity:quizzCompetences }
+
+keeg_activity_quizzDomaines:
+    path:    /activities/quizzDomaines
+    defaults: {_controller: KEEGActivityBundle:Activity:quizzDomaines }
+
 keeg_activity_projects:
     path:     /projets
     defaults: { _controller: KEEGActivityBundle:Project:index }

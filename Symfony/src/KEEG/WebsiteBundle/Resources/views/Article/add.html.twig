@@ -10,7 +10,7 @@
 
 	<h3>Ajouter un article</h3>
 
-	{{ include("KEEGWebsiteBundle:Projet:form.html.twig") }}
+	{{ include("KEEGWebsiteBundle:Article:form.html.twig") }}
 
 	<p class="text-right">
     	<a href="{{ path('keeg_website_admin') }}" class="btn btn-default">
@@ -19,4 +19,11 @@
     	</a>
   	</p>
 
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	    CKEDITOR.replace( 'keeg_articlebundle_article[contenu]' );
+	</script>
 {% endblock %}

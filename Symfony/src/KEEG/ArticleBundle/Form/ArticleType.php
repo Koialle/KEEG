@@ -17,10 +17,10 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre',  'text')
-            ->add('auteur', 'text')
-            ->add('contenu','textarea')
-            ->add('resume', 'textarea')
             ->add('date',   'date')
+            ->add('auteur', 'text')
+            ->add('resume', 'textarea')
+            ->add('contenu','textarea')
             ->add('image', new ImageType())
             ->add('enregistrer', 'submit')
         ;

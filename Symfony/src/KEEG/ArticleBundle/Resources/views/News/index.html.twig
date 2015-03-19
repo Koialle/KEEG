@@ -1,0 +1,15 @@
+{# src/KEEG/ArticleBundle/Resources/views/Default/index.html.twig #}
+
+{% extends "KEEGArticleBundle::layout.html.twig" %}
+
+{% block title %}
+  News {{ parent() }}
+{% endblock %}
+
+{% block keegarticle_body %}
+
+  	<h3>News</h3>
+
+	{{ render(controller("KEEGArticleBundle:News:menu", {'limit': 10})) }}
+  
+{% endblock %}

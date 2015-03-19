@@ -5,73 +5,45 @@
 namespace KEEG\ArticleBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class ArticleController extends Controller
+
+class TemoignageController extends Controller
 {
-	public function indexAction($section){
-		if($section == 'Articles'){
+	public function indexAction(){
+
             //Une liste de News ou Articles ou Temoignages en dur (disons des Articles) :
-            $listeArticles = array(
-                array(
-                    'titre' => 'Les prégugés du GEEK',
-                    'id'    => 1,
-                    'auteur'=> 'Ophélie RODRIGUES',
-                    'content'   =>  '"Les geeks sont soit trop maigres ou trop gros, ils ont des boutons et ils portent des lunettes. Ils passent leur temps sur leur ordinateur et du coup ne voient jamais personne. Ils n\'ont donc pas d\'amis, d\'ailleurs ils font peur aux autres." Voilà l\'image que se font certaines personnes des geeks. Ce qu\'il faut savoir, c\'est que ce n\'est pas du tout la réalité. Dans la réalité, vous et moi sommes des geeks. Oui, allez voir dans un dictionnaire le véritable sens du mot geek, ce mot désigne des personnes passionnées par leur domaine d\'activité. Et non spécifiquement des accros du jeu vidéo, cela peut également faire référence à un fou de cuisine ! Qui sait.',
-                    'date'  => new \Datetime()
-                    ),
-                array(
-                    'titre' => 'Les 5 règles d\'Or pour réussir en info',
-                    'id'    => 2,
-                    'auteur'=> 'Mélanie DUBREUIL',
-                    'content'   =>  'Un autre article.',
-                    'date'  => new \Datetime()
-                    ),
-                array(
-                    'titre' => 'Le Restaurant Universitaire du Campus de la Doua',
-                    'id'    => 3,
-                    'auteur'=> 'KAREN OUBARHOU',
-                    'content'   =>  'Encore un autre article.',
-                    'date'  => new \Datetime()
-                    )
-            );
+            $listeItems = $this->getDoctrine()->getManager()->getRepository('KEEGArticleBundle:Temoignage')->findAll();
 
-
-            return $this->render('KEEGArticleBundle:Default:index.html.twig', array('section' => $section, 'listeArticles' => $listeArticles));
-        }
-
-        return $this->render('KEEGArticleBundle:Default:index.html.twig', array('section' => $section, 'listeArticles' => array()));
+            return $this->render('KEEGArticleBundle:Temoignage:index.html.twig', array('listeItems' => $listeItems));
 	}
 
 	public function viewAction($id){
 
-		$article = array(
-            'titre' => 'Les prégugés du GEEK',
-            'id'    => $id,
-            'auteur'=> 'Ophélie RODRIGUES',
-            'content'   =>  '"Les geeks sont soit trop maigres ou trop gros, ils ont des boutons et ils portent des lunettes. Ils passent leur temps sur leur ordinateur et du coup ne voient jamais personne. Ils n\'ont donc pas d\'amis, d\'ailleurs ils font peur aux autres." Voilà l\'image que se font certaines personnes des geeks. Ce qu\'il faut savoir, c\'est que ce n\'est pas du tout la réalité. Dans la réalité, vous et moi sommes des geeks. Oui, allez voir dans un dictionnaire le véritable sens du mot geek, ce mot désigne des personnes passionnées par leur domaine d\'activité. Et non spécifiquement des accros du jeu vidéo, cela peut également faire référence à un fou de cuisine ! Qui sait.',
-            'date'  => new \Datetime()
-        );
+		$temoignage = $this->getDoctrine()->getManager()->getRepository('KEEGArticleBundle:Temoignage')->find($id);
 
-		return $this->render('KEEGArticleBundle:Article:view.html.twig', array(
-			'article' => $article
+        if(null === $temoignage){
+            throw new NotFoundHttpException("Le temoignage d'id ".$id." n'existe pas.");
+        }
+
+		return $this->render('KEEGArticleBundle:Temoignage:view.html.twig', array(
+			'temoignage' => $temoignage
 		));
 
 	}
 
 	public function menuAction($limit){
 		
-		// On fixe en dur une liste ici, bien entendu par la suite
-		// on la récupérera depuis la BDD !
-		$listeArticles = array(
-		  array('id' => 1, 'titre' => 'Les prégugés du GEEK'),
-		  array('id' => 2, 'titre' => 'Les 5 règles d\'Or pour réussir en info'),
-		  array('id' => 3, 'titre' => 'Le Restaurant Universitaire du Campus de la Doua')
-		);
+        $listeItems = $this->getDoctrine()->getManager()
+        	->getRepository('KEEGArticleBundle:Temoignage')
+        	->findBy(
+        		array(),
+        		null,
+        		$limit
+        	);
 
-		return $this->render('KEEGArticleBundle:Article:menu.html.twig', array(
-		  // Tout l'intérêt est ici : le contrôleur passe
-		  // les variables nécessaires au template !
-		  'listeArticles' => $listeArticles
+		return $this->render('KEEGArticleBundle:Temoignage:menu.html.twig', array(
+		  'listeItems' => $listeItems
 		));
 	}
 }

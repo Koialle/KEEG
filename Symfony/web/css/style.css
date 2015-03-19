@@ -2,18 +2,23 @@
 	list-style-type:none;
 }
 
+.espaceTable{
+	border-spacing:20px 0px;
+	border-collapse:separate;
+}
+
+/*
 .fixe{
 	position:fixed;
 }
 
 .textJustify{
 	text-align:justify;
-}
+}*/
 
-.espaceTable{
-	border-spacing:20px 0px;
-	border-collapse:separate;
-}
+
+
+
 
 /* starter-template.css */
 
@@ -41,15 +46,18 @@ body {
 .img {
 	border-radius: 10px 10px;
 	padding-top: 20px;
+  	padding-bottom: 20px;
+  	height: 300px;
 }
 
-/*
-blockquote {
-    background-color: #EEE;
-    margin: 20px 0px 15px 20px;
-    padding: 1px 15px;
-    color: #444;
-    border-radius: 10px;
-    font-size: 15px;
+.thumbnail_wrapper {
+    vertical-align:middle;
 }
-*/
+.thumbnail_wrapper > img {
+    width:100%;
+}
+
+.article > p {
+	text-indent:30px;
+	padding-top: 10px;
+}

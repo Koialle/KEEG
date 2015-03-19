@@ -1,0 +1,35 @@
+{# src/KEEG/ActivityBundle/Resources/views/Projects/add.html.twig #}
+
+{% extends "KEEGWebsiteBundle::admin.html.twig" %}
+
+{% block title %}
+	Supprimer un témoignage {{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+
+
+	<center>
+		
+		<h3>Supprimer un témoignage</h3>
+
+		<p>
+	    	Etes-vous certain de vouloir supprimer le témoignage "{{ temoignage.titre }}" ?
+	  	</p>
+
+	  	{# On met l'id du temoignage dans la route de l'action du formulaire #}
+	  	<form action="{{ path('keeg_admin_temoignages_delete', {'id': temoignage.id}) }}" method="post">
+	    	<a href="{{ path('keeg_admin_temoignages_view', {'id': temoignage.id}) }}" class="btn btn-default">
+	      		<i class="glyphicon glyphicon-chevron-left"></i>
+	      		Revenir au temoignage
+	    	</a>
+	    	{# Ici j'ai écrit le bouton de soumission à la main #}
+	    	<input type="submit" value="Supprimer" class="btn btn-danger" />
+	    	{# Ceci va générer le champ CSRF #}
+	    	{{ form_rest(form) }}
+	  	</form>
+
+	</center>
+
+{% endblock %}

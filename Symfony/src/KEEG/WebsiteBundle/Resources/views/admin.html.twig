@@ -33,9 +33,9 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="{{ path('keeg_website_admin') }}"><i class="glyphicon glyphicon-home"></i> Index</a></li>
-					<li><a href="#">News</a></li>
+					<li><a href="{{ path('keeg_admin_news') }}">News</a></li>
 					<li><a href="{{ path('keeg_admin_articles') }}">Articles</a></li>
-					<li><a href="#">Témoignages</a></li>
+					<li><a href="{{ path('keeg_admin_temoignages') }}">Témoignages</a></li>
 					<li><a href="{{ path('keeg_admin_projects') }}">Projets</a></li>
 				</ul>
             </div>
@@ -64,9 +64,9 @@
 			{% block menu %}
 				<h3>Index</h3>
 				<ul class="nav nav-pills nav-stacked">
-					<li><a href="#">News</a></li>
+					<li><a href="{{ path('keeg_admin_news') }}">News</a></li>
 					<li><a href="{{ path('keeg_admin_articles') }}">Articles</a></li>
-					<li><a href="#">Témoignages</a></li>
+					<li><a href="{{ path('keeg_admin_temoignages') }}">Témoignages</a></li>
 					<li><a href="{{ path('keeg_admin_projects') }}">Projets</a></li>
 				</ul>
 			{% endblock %}
@@ -90,6 +90,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="{{ asset('js/script.js') }}"></script>
+	<script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
   {% endblock %}
 
 </body>

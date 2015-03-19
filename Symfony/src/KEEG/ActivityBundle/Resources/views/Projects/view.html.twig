@@ -17,7 +17,7 @@
 	{# On vérifie qu'une image est bien associée à l'annonce #}
 	{% if project.image is not null %}
 		<center>
-			<img class="img" src="{{ project.image.url }}" alt="{{ project.image.alt }}" width="500px" height="300px" />
+			<img class="img" src="{{ project.image.url }}" alt="{{ project.image.alt }}" />
 		</center>
 	{% endif %}
 
@@ -30,7 +30,7 @@
 	</blockquote>
 
 	<div class="well">
-		{{ project.description }}
+		{{ project.description|raw }}
 	</div>
 
 
