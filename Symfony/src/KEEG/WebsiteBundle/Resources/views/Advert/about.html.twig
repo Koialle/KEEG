@@ -2,7 +2,9 @@
 
 {% extends "KEEGWebsiteBundle::structure_contact_about.html.twig" %}
 
-
+{% block title %}
+	About {{ parent() }}
+{% endblock %}
 
 
 {% block messages_flash %}
@@ -63,8 +65,15 @@
 				</p>
 			</div>
 
+			<h3>
+				<center>
+					Contributeurs
+				</center>
+			</h3>
+
+
 			<div class="container-fluid well">
-				<h4> <center> Membres du projet KEEG </center> </h4>
+				<h4> <center> Fondatrices du projet KEEG </center> </h4>
 				<br />
 				<div class="row">
 					<div class="col-lg-12 col-md-12">
@@ -84,8 +93,21 @@
 								</tr>
 							</table>
 						</center>
+						<br/><p class="text-center"><em><small>&copy; Promo 2013/2015</small></em></p>
 					</div>
 				</div>
+
+				<hr />
+
+				<h4> <center> Membres ayant contribué au projet </center> </h4>
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<center>
+							<p>[ Insérer les prochains ici ]</p>
+						</center>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

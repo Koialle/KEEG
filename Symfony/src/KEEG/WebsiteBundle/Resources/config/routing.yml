@@ -38,6 +38,8 @@ keeg_website_about:
     path:    /about
     defaults: { _controller: KEEGWebsiteBundle:Website:about }
 
+# Administration
+
 keeg_website_admin:
     path:    /administration
     defaults: { _controller: KEEGWebsiteBundle:Admin:index }

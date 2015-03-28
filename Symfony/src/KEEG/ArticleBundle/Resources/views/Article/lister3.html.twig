@@ -1,46 +1,40 @@
-{% extends "KEEGWebsiteBundle::structure.html.twig" %}
+{% extends "KEEGWebsiteBundle::layout.html.twig" %}
 
-{% block body %}
-
-  {% block keegwebsite_body %}
-  
-
-		<form id="form_recherche" action="{{ path('keeg_article_search') }}" method="post">
-			<br> Mot clé <input type="text" name="motcle" id="motcle"/> <br> <br>
-			<input type="submit" value="Rechercher" />
-		</form>
-
-		<div id="resultats_recherche"> 
-			
-		</div>
-		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
-		<script  type="text/javascript">
-		console.log("lol");
-		$("#form_recherche").submit(function(){ 
-	
-			var motcle = $("#motcle").val();
-			var DATA = 'motcle=' + motcle;
-			$.ajax({
-				type: "POST",
-				url: "{{ path('keeg_article_search')}}",
-				data: DATA,
-				cache: false,
-				success: function(data){
-						$('#resultats_recherche').html(data);
-						console.log("lol2");
-				}
-			});    
-			return false;
-		});
-		</script>
-		
-
-	
-
+{% block title %}
+	Recherche {{ parent() }}
 {% endblock %}
 
+{% block keegwebsite_body %}
+
+	<form id="form_recherche" action="{{ path('keeg_article_search') }}" method="post">
+		<br> Mot clé <input type="text" name="motcle" id="motcle"/> <br> <br>
+		<input type="submit" value="Rechercher" />
+	</form>
+
+	<div id="resultats_recherche"></div>
 	
+{% endblock %}
 
+{% block javascripts %}
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+	<script  type="text/javascript">
+	console.log("lol");
+	$("#form_recherche").submit(function(){ 
+
+		var motcle = $("#motcle").val();
+		var DATA = 'motcle=' + motcle;
+		$.ajax({
+			type: "POST",
+			url: "{{ path('keeg_article_search')}}",
+			data: DATA,
+			cache: false,
+			success: function(data){
+					$('#resultats_recherche').html(data);
+					console.log("lol2");
+			}
+		});    
+		return false;
+	});
+	</script>
 {% endblock %}

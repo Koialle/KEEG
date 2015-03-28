@@ -6,58 +6,25 @@
   A vous de jouer ! {{ parent() }}
 {% endblock %}
 
-{% block menu %}
-	<h3> A vous de jouer ! </h3>
-	<ul class="nav nav-pills nav-stacked">
-		<li><a href={{ path('keeg_activity_questionnaires') }}> L'informatique : est-ce fait pour moi ?</a></li>
-		<li><a href="#"> Hello World ! </a></li>
-		<li><a href="#") }}> Quizz </a></li>
-		<li><a href="#"> Testez des projets d'étudiants! </a></li>
-	</ul>
-{% endblock %}
-
 {% block keegactivities_body %}
 
 	<div class="container-fluid well">
-<<<<<<< Updated upstream
 		<div class="col-lg-12">
 				<div class="row">
 					<p class="textJustify">
-=======
-		<div class="col-lg-12 col-md-12">
-			<div class="row">
-				<h4>
-					<center> 
-						Cette formation est-elle faite pour moi ? 
-					<center>
-				</h4>
-				<br />
-				<div class="col-lg-12 col-md-12">
-					<div class="row">
-						<p class="textJustify">
-							<center>
-								Tu hésites ? Tu ne sais pas si tu as le profil pour faire de l'informatique ? Pas
-								de panique ! Nous avons préparé un super questionnaire afin de cibler ta
-								personnalité et de savoir si l'informatique est fait pour toi ou non !
-								<br />
-								En plus, nous te donnerons aussi un aperçu des différentes formations dans
-								le domaine de l'informatique !
-								<br />
-								Alors qu'est ce que tu attends pour faire ce test ? ;)
-							</center>
-						</p>
-					</div>
-					<br />
-					<div class="row">
->>>>>>> Stashed changes
 						<center>
 							<h3> Découvre ton KEEG profil ! </h3>
 
-							<br /><p> Un autre moyen de découvrir si l'informatique te correspond vraiment, c'est de passer : 
-							<br /><b>"The Big Affinity Test That Determines My KEEG Profil"</b>
-							<br /> <i>ou BADMKP pour les intimes</i> </p>
+							<big>
 
-							<a href="{{ path('keeg_activity_quizzInfo') }}" type="button" class="btn btn-primary"> Faire le BADMKP ! </a>
+								<br /><p> Un autre moyen de découvrir si l'informatique te correspond vraiment, c'est de passer : 
+								<br /><b>"The Big Affinity Test That Determines My KEEG Profil"</b>
+								<br /> <i>ou BADMKP pour les intimes</i> </p>
+
+								<a href="{{ path('keeg_activity_questionnaires') }}" type="button" class="btn btn-primary"> Faire le BADMKP ! </a>
+
+							</big>
+
 						</center>
 					</p>
 				</div>
@@ -65,6 +32,7 @@
 			</div>
 			
 			<hr />
+
 			<div class="row">
 				<h4> Derniers tutos <a href="#"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 				<div class="col-lg-12">
@@ -97,32 +65,16 @@
 			<div class="row">
 				<h4> Derniers projets <a href="#"><i class="glyphicon glyphicon-chevron-right"></i></a></h4>
 				<div class="col-lg-12 col-md-12">
+
 					<div class="row">
-						<div class="col-lg-2 col-md-3">
-							<img src="{{ asset('image/default.png') }}">
-						</div>
-						<div class="col-lg-3 col-md-3">
-							<p>
-							Texte de description.
-							<br />
-							<a href="#"> Voir suite... </a>
-						</p>
-						</div>
-						<div class="col-lg-2 col-md-2">
-							<img src="{{ asset('image/default.png') }}">
-						</div>
-						<div class="col-lg-3 col-md-3">
-							<p>
-							Texte de description.
-							<br />
-							<a href="#"> Voir suite... </a>
-						</p>
-						</div>
+						
+					{{ render(controller("KEEGActivityBundle:Project:menu", {'limit': 3} )) }}
+
 					</div>
 				</div>
 			</div>
 
 		</div>
-	</div>
+
  
 {% endblock %}

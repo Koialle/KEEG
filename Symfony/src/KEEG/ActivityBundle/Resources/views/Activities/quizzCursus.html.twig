@@ -1,20 +1,9 @@
 {# src/KEEG/WebsiteBundle/Resources/views/Advert/index.html.twig #}
 
-{% extends "KEEGActivityBundle::layout.html.twig" %}
+{% extends "KEEGActivityBundle:Activities:index.html.twig" %}
 
 {% block title %}
-  A vous de jouer ! {{ parent() }}
-{% endblock %}
-
-
-{% block menu %}
-	<h3> A vous de jouer ! </h3>
-	<ul class="nav nav-pills nav-stacked">
-		<li><a href={{ path('keeg_activity_questionnaires') }}> L'informatique : est-ce fait pour moi ?</a></li>
-		<li><a href="#"> Hello World ! </a></li>
-		<li><a href="#"> Quizz </a></li>
-		<li><a href="#"> Testez des projets d'Étudiants! </a></li>
-	</ul>
+  Quelle formation pour toi ? {{ parent() }}
 {% endblock %}
 
 {% block keegactivities_body %}

@@ -3,13 +3,15 @@
 {% extends "KEEGActivityBundle::layout.html.twig" %}
 
 {% block title %}
-  A vous de jouer ! {{ parent() }}
+  Projets d'étudiants {{ parent() }}
 {% endblock %}
 
 {% block keegactivities_body %}
 
 	<h3>Projets d'étudiants</h3>
   
-	{{ render(controller("KEEGActivityBundle:Project:menu", {'limit': 4})) }}
+	{{ render(controller("KEEGActivityBundle:Project:menu", {'limit': 12})) }}
+
+	{# Mettre en place un système de pagination #}
  
 {% endblock %}

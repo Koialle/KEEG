@@ -58,27 +58,21 @@ class ArticleController extends Controller
 		
 		if($request->getMethod() == 'POST')
 		{
-		
-			
 			$motcle = '';
 			$motcle = $request->request->get('motcle');
 			
 			$em = $this->container->get('doctrine')->getEntityManager();
+		    $qb = $em->createQueryBuilder();
 
-			//if($motcle != '')
-			//{
-				
-				   $qb = $em->createQueryBuilder();
+		    $qb->select('a')
+			  ->from('KEEGArticleBundle:Article', 'a')
+			  ->where("a.titre LIKE :motcle OR a.contenu LIKE :motcle")
+			  ->orderBy('a.titre', 'ASC')
+			  ->setParameter('motcle', '%'.$motcle.'%');
+			  
 
-				   $qb->select('a')
-					  ->from('KEEGArticleBundle:Article', 'a')
-					  ->where("a.titre LIKE :motcle OR a.contenu LIKE :motcle")
-					  ->orderBy('a.titre', 'ASC')
-					  ->setParameter('motcle', '%'.$motcle.'%');
-					  
-
-				   $query = $qb->getQuery();               
-				   $article = $query->getResult();
+		    $query = $qb->getQuery();               
+		    $article = $query->getResult();
 				
 			if ($article == null) {
 				return $this->container->get('templating')->renderResponse('KEEGArticleBundle:Article:lister2.html.twig', array(
@@ -86,18 +80,12 @@ class ArticleController extends Controller
 				));
 			}
 			else {
-				/*return $this->container->get('templating')->renderResponse('KEEGArticleBundle:Article:lister.html.twig', array(
-				'article' => $article,
-				));*/
 				return $this->render('KEEGArticleBundle:Article:lister.html.twig', array(
 				'article' => $article,
 				));
-			
 			}
 		}
-		else {
-			return $this->render('KEEGArticleBundle:Article:lister3.html.twig');
-		}
+
+		return $this->render('KEEGArticleBundle:Article:lister3.html.twig');
 	}
-	
 }

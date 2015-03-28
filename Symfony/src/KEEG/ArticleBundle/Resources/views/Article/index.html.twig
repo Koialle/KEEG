@@ -10,6 +10,12 @@
 
   	<h3>Articles</h3>
 
-	{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 10})) }}
+  	{% if listeItems is defined %}
+
+		{{ render(controller("KEEGArticleBundle:Article:menu", {'limit': 10})) }}
+
+	{% endif %}
+
+	<p class="text-left"><a href="{{ path('keeg_article_search') }}">Rechercher un article</a></p>
   
 {% endblock %}
